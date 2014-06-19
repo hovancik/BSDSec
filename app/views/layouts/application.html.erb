@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>BSDSec</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -13,6 +14,8 @@
 deadsimple BSD Security Advisories
 </header>
 <%= yield %>
-
+<footer>
+<p>ABOUT | FREEBSD | OPENBSD | NETBSD<p>
+<p>made with &hearts; by <a href="http://hovancik.net">Jan Hovancik</a> </p>
 </body>
 </html>
