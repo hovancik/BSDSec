@@ -46,7 +46,11 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
+    griddler (0.6.4)
+      htmlentities
+      rails (>= 3.2.0)
     hike (1.2.3)
+    htmlentities (4.3.2)
     http (0.6.1)
       http_parser.rb (~> 0.6.0)
     http_parser.rb (0.6.0)
@@ -142,6 +146,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   figaro
+  griddler
   jbuilder (~> 2.0)
   jquery-rails
   pg

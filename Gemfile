@@ -43,3 +43,7 @@ gem 'twitter'
 
 #FIGARO
 gem 'figaro'
+
+#GRIDLER
+gem 'griddler'
+#gem 'griddler-mandrill', :git => 'https://github.com/wingrunr21/griddler-mandrill.git'
