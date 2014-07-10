@@ -18,3 +18,9 @@ body {
     color: #333333;
     font-family: ‘Lucida Console’, Monaco, monospace;
 }
+
+html {margin: 10px}
+
+a:link {text-decoration: none}
+a:visited {text-decoration: none}
+a:active {text-decoration: none}
