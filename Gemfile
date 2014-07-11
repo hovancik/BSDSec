@@ -47,3 +47,6 @@ gem 'figaro'
 #GRIDLER
 gem 'griddler'
 #gem 'griddler-mandrill', :git => 'https://github.com/wingrunr21/griddler-mandrill.git'
+
+#NEW RELIC
+gem 'newrelic_rpm', '~> 3.9.0.229'
