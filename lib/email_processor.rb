@@ -18,10 +18,7 @@ class EmailProcessor
     when "test@bsdsec.tk"
       d = Article.create(title: email.subject, body: email.body, from: email.from.to_s)
       d.tags.create name: 'bsdsec'
-      p "body " email.body
-      p "raw_html" + email.raw_html
-      p "raw_body" + email.raw_body
-      #$client.update(email.subject+ " #BSDSec")    
+      $client.update(email.subject+ " #BSDSec")    
     else
         Email.create(from: email.from.to_s, to: email.to.to_s, cc: email.cc.to_s, subject: email.subject, body: email.body)
     end
