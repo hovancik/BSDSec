@@ -6,6 +6,6 @@
   <% end %>
 </p>
 
-<p><%= @article.body.html_safe %></p>
+<p><%= simple_html(@article.body).html_safe %></p>
 <p>from: <%= @article.from %> 
 <p><%= link_to "<< Back to Articles List", articles_path %></p>
