@@ -18,17 +18,9 @@ deadsimple BSD Security Advisories and Announcements
 </main>
 <footer>
 <p>ABOUT | 
-<% if !Tag.find_by_name("openbsd").nil? %> 
-  <%= link_to "OPENBSD", tag_path(Tag.find_by_name("openbsd")) %> 
-<% end %>
- |
- <% if !Tag.find_by_name("freebsd").nil? %> 
-  <%= link_to "OPENBSD", tag_path(Tag.find_by_name("freebsd")) %> 
-<% end %>
- |
- <% if !Tag.find_by_name("netbsd").nil? %> 
-  <%= link_to "OPENBSD", tag_path(Tag.find_by_name("netbsd")) %> 
-<% end %>
+<% tags.each do |tag| %>
+  <%= link_to tag.name, tag_path(tag) %> | 
+<% end %>  
  </p>
 <p>made with &hearts; by <a href="http://hovancik.net">Jan Hovancik</a> </p>
 </body>
