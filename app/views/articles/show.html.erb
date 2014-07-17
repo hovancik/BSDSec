@@ -1,4 +1,4 @@
-<h2><%= @article.title %></h2>
+<h2><%= @article.title.sub("[FreeBSD-Announce]","") %></h2>
 <p>
   Tags:
   <% @article.tags.each do |tag| %>
@@ -7,5 +7,5 @@
 </p>
 
 <p><%= simple_format(@article.body).html_safe %></p>
-<p>from: <%= @article.from %> 
+<p>from: <%= @article.from.sub("@","(at)") %> 
 <p><%= link_to "<< Back to Articles List", articles_path %></p>

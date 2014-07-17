@@ -17,9 +17,9 @@ deadsimple BSD Security Advisories and Announcements
 <%= yield %>
 </main>
 <footer>
-<p>ABOUT | 
+<p>ABOUT
 <% tags.each do |tag| %>
-  <%= link_to tag.name, tag_path(tag) %> | 
+  | <%= link_to tag.name.upcase, tag_path(tag) %>  
 <% end %>  
  </p>
 <p>made with &hearts; by <a href="http://hovancik.net">Jan Hovancik</a> </p>
