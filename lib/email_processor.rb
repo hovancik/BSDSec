@@ -8,19 +8,19 @@ class EmailProcessor
     end
     case n[0]
     when "announce@openbsd.org"
-      a = Article.create(title: email.subject, body: email.body, from: email.from.to_s, tag_list: "openbsd", raw_body: email.raw_body, raw_text: email.raw_text, raw_html: email.raw_html)
+      a = Article.create(title: email.subject, body: email.body, from: email.from.to_s, tag_list: "openbsd", raw_text: email.raw_text, raw_html: email.raw_html)
       $client.update(email.subject+ " #OpenBSD")
     when "freebsd-announce@freebsd.org"
-      b = Article.create(title: email.subject, body: email.body, from: email.from.to_s, tag_list: "freebsd", raw_body: email.raw_body, raw_text: email.raw_text, raw_html: email.raw_html)
+      b = Article.create(title: email.subject, body: email.body, from: email.from.to_s, tag_list: "freebsd",  raw_text: email.raw_text, raw_html: email.raw_html)
       $client.update(email.subject+ " #FreeBSD")
     when "security-officer@netbsd.org"
-      c = Article.create(title: email.subject, body: email.body, from: email.from.to_s, tag_list: "netbsd", raw_body: email.raw_body, raw_text: email.raw_text, raw_html: email.raw_html)
+      c = Article.create(title: email.subject, body: email.body, from: email.from.to_s, tag_list: "netbsd",  raw_text: email.raw_text, raw_html: email.raw_html)
       $client.update(email.subject+ " #NetBSD")
     when "test@bsdsec.tk"
-      d = Article.create(title: email.subject, body: email.body, from: email.from.to_s, tag_list: "bsdsec", raw_body: email.raw_body, raw_text: email.raw_text, raw_html: email.raw_html)
+      d = Article.create(title: email.subject, body: email.body, from: email.from.to_s, tag_list: "bsdsec", raw_text: email.raw_text, raw_html: email.raw_html)
       $client.update(email.subject+ " #BSDSec")    
     else
-      Email.create(from: email.from.to_s, to: email.to.to_s, cc: email.cc.to_s, subject: email.subject, body: email.body, raw_body: email.raw_body, raw_text: email.raw_text, raw_html: email.raw_html)
+      Email.create(from: email.from.to_s, to: email.to.to_s, cc: email.cc.to_s, subject: email.subject, body: email.body, raw_text: email.raw_text, raw_html: email.raw_html)
     end
   end	
 end
