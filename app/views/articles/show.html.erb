@@ -6,6 +6,6 @@
   <% end %>
 </p>
 
-<p><%= simple_format(@article.body).html_safe %></p>
-<p>from: <%= @article.from.sub("@","(at)") %> 
+<p><%= art_body(@article.body) %></p>
+<p>from: <%= art_mail(@article.from) %> 
 <p><%= link_to "<< Back to Articles List", articles_path %></p>

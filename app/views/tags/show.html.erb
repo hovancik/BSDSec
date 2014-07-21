@@ -1,7 +1,7 @@
 <h2>Articles Tagged with <%= @tag.name %></h2>
   <% @articles.each do |article| %>
     <h3><small><%= article.created_at.strftime('%F') %></small>
-      <%= link_to article.title.sub("[FreeBSD-Announce]",""), article_path(article) %>
+      <%= link_to art_title(article.title), article_path(article) %>
       <% article.tags.each do |tag| %>
         <small><i><%= link_to tag.name, tag_path(tag) %></small></i>
       <% end %></h3>

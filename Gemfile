@@ -50,3 +50,6 @@ gem 'griddler'
 
 #NEW RELIC
 gem 'newrelic_rpm', '~> 3.9.0.229'
+
+#AUTOLINK
+gem 'rails_autolink'
