@@ -21,6 +21,11 @@ body {
 
 html {margin: 10px}
 
-a:link {text-decoration: none}
-a:visited {text-decoration: none}
-a:active {text-decoration: none}
+a {text-decoration:none;color:#369; transition: all 0.2s ease;}
+a:hover, a:active{text-shadow: 0 0 0.3px #999;} 
+
+.pagination {padding:.3em;margin:.3em; }
+.pagination a{padding:.1em .3em;margin:.2em;}
+.pagination a:hover,.pagination a:active{color:#000;}
+.pagination .current{padding:.1em .3em;margin:.2em;font-weight:bold;background-color:#369;color:#FFF;}
+.pagination .disabled{padding:.1em .3em;margin:.2em;color:#ddd;}
