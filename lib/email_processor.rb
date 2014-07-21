@@ -1,9 +1,12 @@
 class EmailProcessor
   def self.process(email)
+    n=[]
     acceptable_to = ["announce@openbsd.org","freebsd-announce@freebsd.org", "netbsd-announce@netbsd.org","test@bsdsec.tk"]
-    email.to.each {|a| a.downcase!}
-    to = acceptable_to & email.to
-    case to[0]
+    email.to.each do |t|
+      t.downcase!
+      n.push acceptable_to.find_all{|item| t.include? item }
+    end
+    case n[0]
     when "announce@openbsd.org"
       a = Article.create(title: email.subject, body: email.body, from: email.from.to_s, tag_list: "openbsd", raw_body: email.raw_body, raw_text: email.raw_text, raw_html: email.raw_html)
       $client.update(email.subject+ " #OpenBSD")
