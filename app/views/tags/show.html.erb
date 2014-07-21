@@ -6,4 +6,6 @@
         <small><i><%= link_to tag.name, tag_path(tag) %></small></i>
       <% end %></h3>
   <% end %>
+  <%= paginate @articles %>  
+
 
