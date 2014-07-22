@@ -14,16 +14,79 @@
  *= require_self
  */
  
-body {
-    color: #333333;
-    font-family: ‘Lucida Console’, Monaco, monospace;
+
+header {
+  margin: 40px auto;
+  text-align: center;
+  color: #50585d;
 }
 
-html {margin: 10px}
-h1 {margin: 30px 0 10px 0;}
+h1, h2, h3, h4, h5, h6 {
+  color: #50585d;
+  font-family: "Noto Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  line-height: 1;
+  font-weight: 700;
+}
 
-a {text-decoration:none;color:#369; transition: all 0.2s ease;}
-a:hover, a:active{text-shadow: 2px 2px 2px #CCCCCC} 
+span, p , span a {
+  color: #50585d; 
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+a {
+  text-decoration:none;
+  color: #226599; 
+}
+
+a:hover {
+  color: #226599; 
+  text-decoration: underline;
+}
+
+.site_title a {
+  text-decoration:none;
+  color: #226599; 
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  text-shadow: 0 1px 4px rgba(1, 1, 1, 0.25);
+}
+
+.site_subtitle {
+  font-size: 1.2rem;
+  font-weight: 300;
+  letter-spacing: 0;
+  line-height: 1.5em;
+  margin: 0;
+  text-shadow: 0 1px 3px rgba(1, 1, 1, 0.25);
+}
+
+.article_info, .article_info a {
+  margin: 2px 0;
+  color: #9eabb3;
+  font-size: 0.8rem;
+}
+
+.article_title {
+  margin-bottom:0;
+  color: #226599;
+}
+
+main {
+  width: 78%;
+  margin: 5% auto;
+}
+
+footer {
+  color: #50585d; 
+  margin: 40px auto;
+  text-align: center;
+}
+footer p {
+    font-size: .9rem;
+}
+
 
 .pagination {padding:.3em;margin:.3em; }
 .pagination a{padding:.1em .3em;margin:.2em;}

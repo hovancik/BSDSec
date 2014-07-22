@@ -9,10 +9,10 @@ module ApplicationHelper
   end
   
   def art_mail(text)
-    text.sub("@","(at)").sub(".","(dot)")
+    text #.sub("@","(at)").sub(".","(dot)")
   end
   
   def art_date(text)
-    text.strftime('%F')
+    text.strftime("%e %B, %Y")
   end
 end

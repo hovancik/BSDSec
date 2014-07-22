@@ -1,13 +1,10 @@
-<h2><%= @article.title.sub("[FreeBSD-Announce]","") %></h2>
-<p>
-  Tags:
-  <% @article.tags.each do |tag| %>
-    <%= link_to tag.name, tag_path(tag) %>
-  <% end %>
-    Published: 
-  <%= art_date(@article.created_at)%>
-</p>
-
-<p><%= art_body(@article.body) %></p>
-<p>from: <%= art_mail(@article.from) %> 
-<p><%= link_to "<< Back to Articles List", articles_path %></p>
+<article>
+  <h2 class="article_title"><%= art_title(@article.title) %></h2>
+  <p class="article_info">
+    <%= art_date(@article.created_at)%> by <%= art_mail(@article.from) %> | 
+    <% @article.tags.each do |tag| %>
+      <%= link_to tag.name, tag_path(tag) %>
+    <% end %>
+  </p>
+  <p><%= art_body(@article.body) %></p>
+</article>
