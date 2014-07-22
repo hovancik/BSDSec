@@ -4,6 +4,8 @@
   <% @article.tags.each do |tag| %>
     <%= link_to tag.name, tag_path(tag) %>
   <% end %>
+    Published: 
+  <%= art_date(@article.created_at)%>
 </p>
 
 <p><%= art_body(@article.body) %></p>

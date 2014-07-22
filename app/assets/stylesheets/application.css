@@ -20,9 +20,10 @@ body {
 }
 
 html {margin: 10px}
+h1 {margin: 30px 0 10px 0;}
 
 a {text-decoration:none;color:#369; transition: all 0.2s ease;}
-a:hover, a:active{text-shadow: 0 0 0.3px #999;} 
+a:hover, a:active{text-shadow: 2px 2px 2px #CCCCCC} 
 
 .pagination {padding:.3em;margin:.3em; }
 .pagination a{padding:.1em .3em;margin:.2em;}

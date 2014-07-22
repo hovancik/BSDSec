@@ -11,4 +11,8 @@ module ApplicationHelper
   def art_mail(text)
     text.sub("@","(at)").sub(".","(dot)")
   end
+  
+  def art_date(text)
+    text.strftime('%F')
+  end
 end
