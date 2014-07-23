@@ -1,6 +1,6 @@
 class TagsController < ApplicationController
   def show
-    @tag = Tag.find(params[:id])
+    @tag = Tag.friendly.find(params[:id])
     @articles = @tag.articles.order("created_at desc").page(params[:page])
   end
 end

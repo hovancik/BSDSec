@@ -56,3 +56,6 @@ gem 'rails_autolink'
 
 #PAGINATION
 gem 'kaminari'
+
+#FRIENDLY_ID
+gem 'friendly_id', '~> 5.0.4'
