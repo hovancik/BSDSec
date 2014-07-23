@@ -1,28 +1,55 @@
-== README
+== BSDSec
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+this is repo for http://www.BSDSec.net, wanna-be <b>deadsimple BSD Security Advisories and Announcements</b>
 
-Things you may want to cover:
+=== Motivation
 
-* Ruby version
+This app is hobby project to learn more about <i>RubyOnRails[http://rubyonrails.org/]</i> and do something possibly useful for <i>BSD community</i>. 
 
-* System dependencies
+Any criticism[https://github.com/hovancik/BSDSec/issues] very welcome. Please check my blog about BSD at http://DiscoverBSD.com
 
-* Configuration
+=== Current Status
 
-* Database creation
+This app is in very-alfa stage. 
 
-* Database initialization
+App does receive emails (with Griddler[https://github.com/thoughtbot/griddler/tree/v0.6.4] and Mandrill[https://mandrillapp.com/]), then save it as Article and Tweet about it (with Twitter[https://github.com/sferik/twitter] gem): 
+* FreeBSD 
+* OpenBSD
+* NetBSD
 
-* How to run the test suite
+DragonflyBSD doesn't seems to have any announce mailing list or Security Announces. (Other ditros to be researched.)
 
-* Services (job queues, cache servers, search engines, etc.)
+App has very simple design, whatever-device friendly. (<b>Any designer here?</b> Would love to get some logo maybe ;] At least for favicon.) 
 
-* Deployment instructions
+=== TO-DO
+* code refactor ;] (anyone?)
+* check other BSDs for SA
+* create reddit /r for discussions (so it would be on reddit, app and tweets would have link to it )
+* create command line app (eg.: <tt>bsdec --tag freebsd --time week</tt>) 
+* upgrade Griddler to version 1
+* research possibility to license this with BSD license
+* make method for adding more tags (like BSDCan, LibreSSL etc. ) as right now it's just freebsd for FreeBSD list etc...
+* testing
+* RSS 
 
-* ...
+== Join! 
+
+Pull Requests are very welcome. 
+
+I do love learning new stuff and I hope this can become community project. I would like to get some RSpec testing on so this all would become much easier. 
+
+Right now BSDSec runs on develop branch (yeah, I know). Might change in future.
+
+== I see ... Errors!
+
+Use Issues[https://github.com/hovancik/BSDSec/issues], so we all can see and figure it out!
+ 
+The same with Ideas and Criticism please!
+
+ 
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+
+
+

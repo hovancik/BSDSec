@@ -13,7 +13,6 @@
  *= require_tree .
  *= require_self
  */
- 
 
 header {
   margin: 40px auto;
@@ -31,7 +30,7 @@ h1, h2, h3, h4, h5, h6 {
 span, p , span a {
   color: #50585d; 
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 a {
@@ -55,7 +54,7 @@ a:hover {
 
 .site_subtitle {
   font-size: 1.2rem;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 0;
   line-height: 1.5em;
   margin: 0;
@@ -75,7 +74,12 @@ a:hover {
 
 main {
   width: 78%;
-  margin: 5% auto;
+  margin: 5% auto 0 auto;
+  line-height: 1.6rem;
+}
+
+ul li {
+  color: #50585d;
 }
 
 footer {
@@ -88,7 +92,7 @@ footer p {
 }
 
 
-.pagination {padding:.3em;margin:.3em; }
+.pagination {padding:.3em;margin:.3em;font-size: 1.7rem; }
 .pagination a{padding:.1em .3em;margin:.2em;}
 .pagination a:hover,.pagination a:active{color:#000;}
 .pagination .current{padding:.1em .3em;margin:.2em;font-weight:bold;background-color:#369;color:#FFF;}
