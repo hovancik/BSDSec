@@ -14,8 +14,6 @@
  *= require_self
  *= require font-awesome
  */
- 
-@import "font-awesome"; 
 
 header {
   margin: 40px auto;
@@ -88,8 +86,8 @@ a:hover {
 }
 
 main {
-  width: 78%;
-  margin: 5% auto 5% auto;
+  max-width: 78%;
+  margin: 5% auto 0 auto;
   line-height: 1.6rem;
 }
 
