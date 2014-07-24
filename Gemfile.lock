@@ -46,8 +46,8 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
-    font-awesome-sass (4.1.0)
-      sass (~> 3.2)
+    font-awesome-rails (4.1.0.0)
+      railties (>= 3.2, < 5.0)
     friendly_id (5.0.4)
       activerecord (>= 4.0.0)
     griddler (0.6.4)
@@ -156,7 +156,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   figaro
-  font-awesome-sass
+  font-awesome-rails
   friendly_id (~> 5.0.4)
   griddler
   jbuilder (~> 2.0)
