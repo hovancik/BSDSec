@@ -12,17 +12,29 @@
 <header>
 
 <h1 class="site_title"><%= link_to "BSDSec", root_path %> </h1>
+<div class="social">
+  <%= link_to icon('rss'), "/articles.atom", class: "fa-lg" %>
+  <%= link_to icon('github'), "https://github.com/hovancik/BSDSec",class: "fa-lg" %>
+  <%= link_to icon('twitter'), "https://twitter.com/bsdsec", class: "fa-lg" %> 
+</div>
 <p class="site_subtitle">deadsimple BSD Security Advisories and Announcements </p>
 </header>
 <main>
 <%= yield %>
 </main>
 <footer>
-<p><%= link_to "ABOUT", "/about" %> | <%= link_to "TWITTER", "https://twitter.com/bsdsec" %>
+<p><%= link_to "ABOUT", "/about" %>
 <% tags.each do |tag| %>
   | <%= link_to tag.name.upcase, tag_path(tag) %>  
 <% end %>  
  </p>
+
 <p>made with &hearts; by <%= link_to "Jan Hovancik", "http://hovancik.net" %> </p>
+ <div class="social">
+  <%= link_to icon('rss'), "/articles.atom" %>
+  <%= link_to icon('github'), "https://github.com/hovancik/BSDSec" %>
+  <%= link_to icon('twitter'), "https://twitter.com/bsdsec" %> 
+</div>
+<%= auto_discovery_link_tag(:rss, articles_url(:format => :atom)) %>
 </body>
 </html>

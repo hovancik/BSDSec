@@ -59,3 +59,6 @@ gem 'kaminari'
 
 #FRIENDLY_ID
 gem 'friendly_id', '~> 5.0.4'
+
+# FONT AWESOME
+gem 'font-awesome-sass'

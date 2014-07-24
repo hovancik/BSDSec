@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
 
 header {
@@ -25,6 +26,10 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Noto Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
   line-height: 1;
   font-weight: 700;
+}
+
+.article_link {
+  font-size:1.4rem;
 }
 
 span, p , span a {
@@ -41,6 +46,14 @@ a {
 a:hover {
   color: #226599; 
   text-decoration: underline;
+}
+
+.social a {
+  color:#bbb;
+}
+
+.social a:hover {
+  color:#226599;
 }
 
 .site_title a {
@@ -74,7 +87,7 @@ a:hover {
 
 main {
   width: 78%;
-  margin: 5% auto 0 auto;
+  margin: 5% auto 5% auto;
   line-height: 1.6rem;
 }
 
@@ -89,11 +102,12 @@ footer {
 }
 footer p {
     font-size: .9rem;
+    margin:5px;
 }
 
 
-.pagination {padding:.3em;margin:.3em;font-size: 1.7rem; }
-.pagination a{padding:.1em .3em;margin:.2em;}
+.pagination {padding:.3em;margin:.3em;}
+.pagination a{padding:.1em .3em;margin:.2em;font-size: 1.7rem; }
 .pagination a:hover,.pagination a:active{color:#000;}
-.pagination .current{padding:.1em .3em;margin:.2em;font-weight:bold;background-color:#369;color:#FFF;}
-.pagination .disabled{padding:.1em .3em;margin:.2em;color:#ddd;}
+.pagination .current{padding:.1em .3em;margin:.2em;font-weight:bold;background-color:#369;color:#FFF;font-size: 1.7rem; }
+.pagination .disabled{padding:.1em .3em;margin:.2em;color:#ddd; font-size: 1.7rem;}
