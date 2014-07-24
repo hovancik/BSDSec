@@ -21,7 +21,7 @@ header {
   color: #50585d;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3 {
   color: #50585d;
   font-family: "Noto Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
   line-height: 1;
@@ -55,7 +55,9 @@ a:hover {
 .social a:hover {
   color:#226599;
 }
-
+.site_title {
+    margin-bottom:5px;
+}
 .site_title a {
   text-decoration:none;
   color: #226599; 
