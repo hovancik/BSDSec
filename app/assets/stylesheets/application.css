@@ -87,6 +87,10 @@ a:hover {
   color: #226599;
 }
 
+.comment {
+  margin-left: 1em;
+}
+
 main {
   max-width: 78%;
   margin: 5% auto 0 auto;

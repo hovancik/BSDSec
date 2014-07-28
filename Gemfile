@@ -62,3 +62,6 @@ gem 'friendly_id', '~> 5.0.4'
 
 # FONT AWESOME
 gem 'font-awesome-rails'
+
+#REDDIT
+gem 'redditkit', '~> 1.0.1'

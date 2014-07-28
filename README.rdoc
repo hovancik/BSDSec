@@ -26,7 +26,7 @@ App has very simple design, whatever-device friendly. (<b>Any designer here?</b>
 * I develop on Koding.com[https://koding.com/R/hovancik]. <b>Service is free.</b>
 * to be able to use mail, I use Mandrill[https://mandrillapp.com/]) with Griddler[https://github.com/thoughtbot/griddler/tree/v0.6.4] gem. And also <b>free domain from dot.tk[http://dot.tk]</b> to be able to set MX records needed for Mandrill. <b>Thanks Mandrill for free service!</b>
 * I subscribe lists with my Gmail address and then make a filter to resend the messages. 
-* Other stuff used: FontAwesome[http://fontawesome.io/], NewRelic[https://newrelic.com] to check it out how it works.  
+* Other stuff used: FontAwesome[http://fontawesome.io/] for icons, NewRelic[https://newrelic.com] to check it out how it works.  
 * I deploy with Ninefold[http://ninefold.com]. <b>As well for free, thanks a lot for great service!</b>
 
 
@@ -35,14 +35,14 @@ So the only money I paid was for Domain, so far.
 === TO-DO
 * code refactor ;] (anyone?)
 * check other BSDs for SA
-* create reddit /r for discussions (so it would be on reddit, app and tweets would have link to it )
+* (done - http://reddit.com/r/bsdsec) create reddit /r for discussions (so it would be on reddit, app and tweets would have link to it )
 * create command line app (eg.: <tt>bsdec --tag freebsd --time week</tt>) 
 * upgrade Griddler to version 1
-* research possibility to license this with BSD license
+* research possibility to license this with BSD license (shouldn't be problem)
 * make method for adding more tags (like BSDCan, LibreSSL etc. ) as right now it's just freebsd for FreeBSD list etc...
 * testing
-* RSS (done) 
-* analytics
+* (done)  RSS 
+* google analytics (when sure with basic funcionality, start pushing master branch only)
 
 == Join! 
 
@@ -55,5 +55,3 @@ Right now BSDSec runs on develop branch (yeah, I know). Might change in future.
 == I see ... Errors!
 
 Use Issues[https://github.com/hovancik/BSDSec/issues], so we all can see and figure it out!
- 
-The same with Ideas and Criticism please!
