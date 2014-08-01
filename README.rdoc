@@ -38,7 +38,6 @@ So the only money I paid was for Domain, so far.
 * (done - http://reddit.com/r/bsdsec) create reddit /r for discussions (so it would be on reddit, app and tweets would have link to it )
 * create command line app (eg.: <tt>bsdec --tag freebsd --time week</tt>) 
 * upgrade Griddler to version 1
-* research possibility to license this with BSD license (shouldn't be problem)
 * make method for adding more tags (like BSDCan, LibreSSL etc. ) as right now it's just freebsd for FreeBSD list etc...
 * testing
 * (done)  RSS 
@@ -55,3 +54,11 @@ Right now BSDSec runs on develop branch (yeah, I know). Might change in future.
 == I see ... Errors!
 
 Use Issues[https://github.com/hovancik/BSDSec/issues], so we all can see and figure it out!
+
+== License
+
+Copyright © 2014 Jan Hovancik <conta.srdr@gmail.com>
+
+This work is free. You can redistribute it and/or modify it under the
+terms of the Do What The Fuck You Want To Public License, Version 2,
+as published by Sam Hocevar. See http://www.wtfpl.net/ for more details.
