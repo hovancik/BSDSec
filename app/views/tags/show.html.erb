@@ -1,3 +1,4 @@
+<% content_for :title, "BSDSec: #{@tag}" %>
 <% @articles.each do |article| %>
   <h2><span><%= art_date(article.created_at) %></span>
     <%= link_to art_title(article.title), article_path(article) %>

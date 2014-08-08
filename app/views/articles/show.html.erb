@@ -1,3 +1,4 @@
+<% content_for :title, "BSDSec: #{art_title(@article.title)}" %>
 <article>
   <h2 class="article_title"><%= art_title(@article.title) %>
   <%= link_to fa_icon('comments-o'), "https://reddit.com/r/bsdsec", title: "Comment on reddit", class: "comment" %>
