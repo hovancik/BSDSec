@@ -16,7 +16,7 @@ class EmailProcessor
       b = Article.create(title: email.subject, body: email.body, from: email.from.to_s, tag_list: "freebsd")
       $client.update(email.subject[0..100] + "... #FreeBSD http://bsdsec.net/articles/#{b.friendly_id}")
       reddit_client.submit(b.title[0..100] + "...","bsdsec",{url: "http://bsdsec.net/articles/#{b.friendly_id}"})
-    when "security-officer@netbsd.org"
+    when "netbsd-announce@netbsd.org"
       c = Article.create(title: email.subject, body: email.body, from: email.from.to_s, tag_list: "netbsd")
       $client.update(email.subject[0..100] + "... #NetBSD http://bsdsec.net/articles/#{c.friendly_id}")
       reddit_client.submit(c.title[0..100] + "...","bsdsec",{url: "http://bsdsec.net/articles/#{c.friendly_id}"})
