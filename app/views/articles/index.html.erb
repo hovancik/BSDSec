@@ -3,9 +3,9 @@
   <% @articles.each do |article| %>
     <h2>
       <span><%= art_date(article.created_at) %></span>
-      <%= link_to art_title(article.title), article_path(article), class: "article_link" %>
+      <%= link_to art_title(article.title), article_path(article), class: "article_link", title:art_title(article.title) %>
       <% article.tags.each do |tag| %>
-        <span> <%= link_to tag.name, tag_path(tag) %></span>
+        <span> <%= link_to tag.name, tag_path(tag), title: "articles tagged with " + tag.name %></span>
       <% end %>
     </h2>
   <% end %>
