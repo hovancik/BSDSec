@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def art_title(text)
-    text.sub("[FreeBSD-Announce]","")
+    text.sub("[FreeBSD-Announce]","").sub("[Midnightbsd-security]","")
   end
   
   def art_body(text)
