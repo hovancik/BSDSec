@@ -65,3 +65,6 @@ gem 'font-awesome-rails'
 
 #REDDIT
 gem 'redditkit', '~> 1.0.1'
+
+#HEROKU
+gem 'rails_12factor', group: :production
