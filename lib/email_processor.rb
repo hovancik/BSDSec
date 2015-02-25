@@ -19,6 +19,10 @@ class EmailProcessor
       b = Article.create(title: email.subject, body: email.body, from: email.from.to_s, tag_list: "freebsd")
       $client.update(email.subject[0..100] + "... #FreeBSD https://bsdsec.net/articles/#{b.friendly_id}")
       reddit_client.submit(b.title[0..100] + "...","bsdsec",{url: "https://bsdsec.net/articles/#{b.friendly_id}"})
+    when "errata-notices@freebsd.org"
+      b = Article.create(title: email.subject, body: email.body, from: email.from.to_s, tag_list: "freebsd")
+      $client.update(email.subject[0..100] + "... #FreeBSD https://bsdsec.net/articles/#{b.friendly_id}")
+      reddit_client.submit(b.title[0..100] + "...","bsdsec",{url: "https://bsdsec.net/articles/#{b.friendly_id}"})
     when "midnightbsd-security@midnightbsd.org"
       b = Article.create(title: email.subject, body: email.body, from: email.from.to_s, tag_list: "midnightbsd")
       $client.update(email.subject[0..100] + "... #MidnightBSD https://bsdsec.net/articles/#{b.friendly_id}")
