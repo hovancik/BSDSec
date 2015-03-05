@@ -4,8 +4,10 @@ class EmailProcessor
   end
   def process
     n=""
+    p @email
     acceptable_to = [ "errata-notices@freebsd.org", "announce@openbsd.org","freebsd-announce@freebsd.org", "netbsd-announce@netbsd.org", "security-advisories@freebsd.org","midnightbsd-security@midnightbsd.org", "security-announce@lists.pfsense.org"]
     to = @email.to.each {|a| a[:email].downcase!}
+    p to
     n= acceptable_to & to
     reddit_client = RedditKit::Client.new ENV["reddit_name"], ENV["reddit_pass"] 
     reddit_client.user_agent = "BSDSec.net"
