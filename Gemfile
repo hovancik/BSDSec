@@ -51,8 +51,8 @@ gem 'twitter'
 gem 'figaro'
 
 #GRIDLER
-gem 'griddler'
-#gem 'griddler-mandrill', :git => 'https://github.com/wingrunr21/griddler-mandrill.git'
+gem 'griddler', '~> 1.1.0'
+gem 'griddler-mandrill', '~> 1.0.2'
 
 #NEW RELIC
 gem 'newrelic_rpm', '~> 3.9.0.229'
