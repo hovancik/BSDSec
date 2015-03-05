@@ -41,7 +41,7 @@ class EmailProcessor
       #$client.update(email.subject[0..100] + "... #pfSense https://bsdsec.net/articles/#{c.friendly_id}")
       #reddit_client.submit(c.title[0..100] + "...","bsdsec",{url: "https://bsdsec.net/articles/#{c.friendly_id}"})
     else
-      Email.create(from: @email.from[:email].to_s, to: @email.to[:email].to_s, cc: @email.cc[:email].to_s, subject: @email.subject, body: @email.body) #unless n[0]==nil
+      Email.create(from: @email.from[:email].to_s, to: @email.to[:email].to_s, cc: @email.cc.to_s, subject: @email.subject, body: @email.body) #unless n[0]==nil
     end
   end	
 end
