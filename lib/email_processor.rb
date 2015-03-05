@@ -4,9 +4,11 @@ class EmailProcessor
   end
   def process
     n=""
+    p "EMAIL"
     p @email
     acceptable_to = [ "errata-notices@freebsd.org", "announce@openbsd.org","freebsd-announce@freebsd.org", "netbsd-announce@netbsd.org", "security-advisories@freebsd.org","midnightbsd-security@midnightbsd.org", "security-announce@lists.pfsense.org"]
     to = @email.to.each {|a| a[:email].downcase!}
+    p "TOTOT"
     p to
     n= acceptable_to & to
     reddit_client = RedditKit::Client.new ENV["reddit_name"], ENV["reddit_pass"] 
@@ -41,6 +43,10 @@ class EmailProcessor
       #$client.update(email.subject[0..100] + "... #pfSense https://bsdsec.net/articles/#{c.friendly_id}")
       #reddit_client.submit(c.title[0..100] + "...","bsdsec",{url: "https://bsdsec.net/articles/#{c.friendly_id}"})
     else
+      p "from"
+      p @email.from[:email].to_s
+      p "to"
+      p @email.to[:email].to_s
       Email.create(from: @email.from[:email].to_s, to: @email.to[:email].to_s, cc: @email.cc.to_s, subject: @email.subject, body: @email.body) #unless n[0]==nil
     end
   end	
