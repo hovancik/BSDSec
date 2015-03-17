@@ -1,6 +1,5 @@
 == BSDSec
-[![Code Climate](https://codeclimate.com/github/hovancik/BSDSec/badges/gpa.svg)](https://codeclimate.com/github/hovancik/BSDSec) [![Test Coverage](https://codeclimate.com/github/hovancik/BSDSec/badges/coverage.svg)](https://codeclimate.com/github/hovancik/BSDSec)
-
+{<img src="https://codeclimate.com/github/hovancik/BSDSec/badges/gpa.svg" />}[https://codeclimate.com/github/hovancik/BSDSec]{<img src="https://codeclimate.com/github/hovancik/BSDSec/badges/coverage.svg" />}[https://codeclimate.com/github/hovancik/BSDSec]
 this is repo for http://www.BSDSec.net, wanna-be <b>deadsimple BSD Security Advisories and Announcements</b>
 
 === Motivation
