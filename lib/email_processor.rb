@@ -3,46 +3,41 @@ class EmailProcessor
     @email = email
   end
   
+  def tag_list_to_hashtag tag_list
+    tag_list.split(',').map {|i| "##{i} " }.join
+  end
+  
   def create_article(tag_list)
-    Article.create(title: @email.subject, body: @email.body, from: @email.from[:email].to_s, tag_list: tag_list)
+    reddit_client = RedditKit::Client.new ENV["reddit_name"], ENV["reddit_pass"] 
+    reddit_client.user_agent = "BSDSec.net"
+    a = Article.create(title: @email.subject, body: @email.body, from: @email.from[:email].to_s, tag_list: tag_list.downcase)
+    $client.update(@email.subject[0..100] + "... #{tag_list_to_hashtag(tag_list)}https://bsdsec.net/articles/#{a.friendly_id}")
+    reddit_client.submit(a.title[0..100] + "...","bsdsec",{url: "https://bsdsec.net/articles/#{a.friendly_id}"})
   end  
   
-  def process
+  def find_list
     n=""
     acceptable_to = [ "errata-notices@freebsd.org", "announce@openbsd.org","freebsd-announce@freebsd.org", "netbsd-announce@netbsd.org", "security-advisories@freebsd.org","midnightbsd-security@midnightbsd.org", "security-announce@lists.pfsense.org"]
     to = @email.to.map {|a| a[:email].downcase}
     n= acceptable_to & to
-    reddit_client = RedditKit::Client.new ENV["reddit_name"], ENV["reddit_pass"] 
-    reddit_client.user_agent = "BSDSec.net"
-    case n[0]
+  end  
+  
+  def process
+    case find_list[0]
     when "announce@openbsd.org"
-      a = create_article("openbsd")
-      $client.update(@email.subject[0..100] + "... #OpenBSD https://bsdsec.net/articles/#{a.friendly_id}")
-      reddit_client.submit(a.title[0..100] + "...","bsdsec",{url: "https://bsdsec.net/articles/#{a.friendly_id}"})
+      create_article("OpenBSD")
     when "freebsd-announce@freebsd.org"
-      a = create_article("freebsd")
-      $client.update(@email.subject[0..100] + "... #FreeBSD https://bsdsec.net/articles/#{a.friendly_id}")
-      reddit_client.submit(a.title[0..100] + "...","bsdsec",{url: "https://bsdsec.net/articles/#{a.friendly_id}"})
+      create_article("FreeBSD")
     when "security-advisories@freebsd.org"
-      a = create_article("freebsd")
-      $client.update(@email.subject[0..100] + "... #FreeBSD https://bsdsec.net/articles/#{a.friendly_id}")
-      reddit_client.submit(a.title[0..100] + "...","bsdsec",{url: "https://bsdsec.net/articles/#{a.friendly_id}"})
+      create_article("FreeBSD")
     when "errata-notices@freebsd.org"
-      a = create_article("freebsd")
-      $client.update(@email.subject[0..100] + "... #FreeBSD https://bsdsec.net/articles/#{a.friendly_id}")
-      reddit_client.submit(a.title[0..100] + "...","bsdsec",{url: "https://bsdsec.net/articles/#{a.friendly_id}"})
+      create_article("FreeBSD")
     when "midnightbsd-security@midnightbsd.org"
-      a =create_article("midnightbsd")
-      $client.update(@email.subject[0..100] + "... #MidnightBSD https://bsdsec.net/articles/#{a.friendly_id}")
-      reddit_client.submit(a.title[0..100] + "...","bsdsec",{url: "https://bsdsec.net/articles/#{a.friendly_id}"})      
+      create_article("MidnightBSD")
     when "netbsd-announce@netbsd.org"
-      a = create_article("netbsd")
-      $client.update(@email.subject[0..100] + "... #NetBSD https://bsdsec.net/articles/#{a.friendly_id}")
-      reddit_client.submit(a.title[0..100] + "...","bsdsec",{url: "https://bsdsec.net/articles/#{a.friendly_id}"})
+      create_article("NetBSD")
     when "security-announce@lists.pfsense.org"
-      a = create_article("pfsense")
-      $client.update(@email.subject[0..100] + "... #pfSense https://bsdsec.net/articles/#{a.friendly_id}")
-      reddit_client.submit(a.title[0..100] + "...","bsdsec",{url: "https://bsdsec.net/articles/#{a.friendly_id}"})
+      create_article("pfSense")
     else
       Email.create(from: @email.from[:email].to_s, to: @email.to.map {|a| a[:email].downcase}.to_s, cc: @email.cc.map {|a| a[:email].downcase}.to_s, subject: @email.subject, body: @email.body) #unless n[0]==nil
     end
