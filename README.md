@@ -1,15 +1,15 @@
-== BSDSec
-{<img src="https://codeclimate.com/github/hovancik/BSDSec/badges/gpa.svg" />}[https://codeclimate.com/github/hovancik/BSDSec]{<img src="https://codeclimate.com/github/hovancik/BSDSec/badges/coverage.svg" />}[https://codeclimate.com/github/hovancik/BSDSec]
+## BSDSec
+[![Code Climate](https://codeclimate.com/github/hovancik/BSDSec/badges/gpa.svg)](https://codeclimate.com/github/hovancik/BSDSec)
 
 this is repo for http://www.BSDSec.net, wanna-be <b>deadsimple BSD Security Advisories and Announcements</b>
 
-=== Motivation
+### Motivation
 
 This app is hobby project to learn more about <i>RubyOnRails[http://rubyonrails.org/]</i> and do something possibly useful for <i>BSD community</i>. 
 
 Any criticism[https://github.com/hovancik/BSDSec/issues] very welcome. Please check my blog about BSD at http://DiscoverBSD.com
 
-=== Current Status
+### Current Status
 
 This app is in very-alfa stage. 
 
@@ -24,7 +24,7 @@ DragonflyBSD, PC-BSD doesn't seems to have any announce mailing list or Security
 
 App has very simple design, whatever-device friendly. (<b>Any designer here?</b> Would love to get some logo maybe ;] At least for favicon.) 
 
-==== How it works
+#### How it works
 * As I mentioned, this is a Ruby on Rails app (Rails 4.2.0, ruby 2.1.3p242 (2014-09-19 revision 47630) [x86_64-linux]). 
 * I develop on Koding.com[https://koding.com/R/hovancik]. <b>Service is free.</b>
 * to be able to use mail, I use Mandrill[https://mandrillapp.com/]) with Griddler[https://github.com/thoughtbot/griddler] gem. <b>Thanks Mandrill for free service!</b>
@@ -35,7 +35,7 @@ App has very simple design, whatever-device friendly. (<b>Any designer here?</b>
 
 So the only money I paid was for Domain, so far.
 
-=== TO-DO
+### TO-DO
 * (in prgress) code refactor ;] (anyone?)
 * check other BSDs for SA 
 * (done - http://reddit.com/r/bsdsec) create reddit /r for discussions (so it would be on reddit, app and tweets would have link to it )
@@ -46,7 +46,7 @@ So the only money I paid was for Domain, so far.
 * (done)  RSS 
 * (done) google analytics (when sure with basic funcionality, start pushing master branch only)
 
-== Join! 
+## Join! 
 
 Pull Requests are very welcome. 
 
@@ -54,11 +54,11 @@ I do love learning new stuff and I hope this can become community project. I wou
 
 Right now BSDSec runs on develop branch (yeah, I know). Might change in future.
 
-== I see ... Errors!
+## I see ... Errors!
 
 Use Issues[https://github.com/hovancik/BSDSec/issues], so we all can see and figure it out!
 
-== License
+## License
 
 Copyright © 2014 Jan Hovancik <conta.srdr@gmail.com>
 
