@@ -5,7 +5,7 @@ module ApplicationHelper
   end
   
   def art_body(text)
-    auto_link(text, :html => { :target => '_blank', :rel => 'nofollow' }).html_safe
+    text #auto_link(text, :html => { :target => '_blank', :rel => 'nofollow' }).html_safe
   end
   
   def art_mail(text)
