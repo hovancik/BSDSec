@@ -20,7 +20,7 @@ class EmailProcessor
     acceptable_to = [ "errata-notices@freebsd.org", "announce@openbsd.org","freebsd-announce@freebsd.org", "netbsd-announce@netbsd.org", "security-advisories@freebsd.org","midnightbsd-security@midnightbsd.org", "security-announce@lists.pfsense.org"]
     to = @email.to.map {|a| a[:email].downcase}
     cc = @email.cc.map {|a| a[:email].downcase}
-    n= acceptable_to & to & cc
+    n= acceptable_to & to + cc
   end  
   
   def process
