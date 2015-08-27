@@ -17,7 +17,7 @@ class EmailProcessor
   
   def find_list
     n=""
-    acceptable_to = ["announce@freebsd.org", "errata-notices@freebsd.org", "announce@openbsd.org","freebsd-announce@freebsd.org", "netbsd-announce@netbsd.org", "security-advisories@freebsd.org","midnightbsd-security@midnightbsd.org", "security-announce@lists.pfsense.org"]
+    acceptable_to = ["announce@freebsd.org", "errata-notices@freebsd.org", "announce@openbsd.org","freebsd-announce@freebsd.org", "netbsd-announce@netbsd.org","announce@netbsd.org", "security-advisories@freebsd.org","midnightbsd-security@midnightbsd.org", "security-announce@lists.pfsense.org"]
     to = @email.to.map {|a| a[:email].downcase}
     cc = @email.cc.map {|a| a[:email].downcase}
     n= acceptable_to & to + cc
@@ -39,6 +39,8 @@ class EmailProcessor
       create_article("MidnightBSD")
     when "netbsd-announce@netbsd.org"
       create_article("NetBSD")
+    when "announce@netbsd.org"
+      create_article("NetBSD")      
     when "security-announce@lists.pfsense.org"
       create_article("pfSense")
     else
