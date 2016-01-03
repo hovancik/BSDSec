@@ -1,0 +1,6 @@
+ruby:
+  config_file: .ruby-style.yml
+scss:
+  config_file: .scss-style.yml
+
+fail_on_violations: true
