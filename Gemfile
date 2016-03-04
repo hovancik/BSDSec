@@ -51,8 +51,8 @@ gem 'twitter', '~> 5.15'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 
 #GRIDLER
-gem 'griddler', '~> 1.2', '>= 1.2.1'
-gem 'griddler-mandrill', '~> 1.1', '>= 1.1.3'
+gem 'griddler', '~> 1.3'
+gem 'griddler-mailgun', '~> 1.0', '>= 1.0.2'
 
 #NEW RELIC
 gem 'newrelic_rpm', '~> 3.14', '>= 3.14.1.311'
