@@ -3,8 +3,8 @@ class EmailProcessor
     @email = email
   end
 
-  def tag_list_to_hashtag tag_list
-    tag_list.split(',').map {|i| "##{i} " }.join
+  def tag_list_to_hashtag(tag_list)
+    tag_list.split(",").map { |i| "##{i} " }.join
   end
 
   def create_article(tag_list)
@@ -14,8 +14,9 @@ class EmailProcessor
     $client.update(@email.subject[0..100] +
       "... #{tag_list_to_hashtag(tag_list)} \
       https://bsdsec.net/articles/#{article.friendly_id}")
-    reddit_client.submit(article.title[0..100] + "...", "bsdsec",
-      url: "https://bsdsec.net/articles/#{article.friendly_id}")
+    reddit_client.submit(article.title[0..100] + "...",
+                         "bsdsec",
+                         url: "https://bsdsec.net/articles/#{article.friendly_id}")
   end
 
   def find_list
