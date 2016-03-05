@@ -11,7 +11,7 @@ class EmailProcessor
     article = Article.create(title: @email.subject, body: @email.body,
                              from: @email.from[:email].to_s,
                              tag_list: tag_list.downcase)
-    $client.update(@email.subject[0..100] +
+    twitter_client.update(@email.subject[0..100] +
       "... #{tag_list_to_hashtag(tag_list)} \
       https://bsdsec.net/articles/#{article.friendly_id}")
     reddit_client.submit(article.title[0..100] + "...",
@@ -65,5 +65,14 @@ class EmailProcessor
     reddit_client = RedditKit::Client.new ENV["reddit_name"], ENV["reddit_pass"]
     reddit_client.user_agent = "BSDSec.net"
     reddit_client
+  end
+
+  def twitter_client
+    Twitter::REST::Client.new do |config|
+      config.consumer_key        = ENV["twitter_consumer_key"]
+      config.consumer_secret     = ENV["twitter_consumer_secret"]
+      config.access_token        = ENV["twitter_access_token"]
+      config.access_token_secret = ENV["twitter_access_token_secret"]
+    end
   end
 end
