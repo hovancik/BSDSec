@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby "2.2.4"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5.1'
+gem 'rails', '4.2.5.2'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -51,8 +51,8 @@ gem 'twitter', '~> 5.15'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 
 #GRIDLER
-gem 'griddler', '~> 1.2', '>= 1.2.1'
-gem 'griddler-mandrill', '~> 1.1', '>= 1.1.3'
+gem 'griddler', '~> 1.3'
+gem 'griddler-mailgun', '~> 1.0', '>= 1.0.2'
 
 #NEW RELIC
 gem 'newrelic_rpm', '~> 3.14', '>= 3.14.1.311'
