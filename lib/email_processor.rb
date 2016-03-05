@@ -30,7 +30,7 @@ class EmailProcessor
                      "netbsd-announce@netbsd.org", "announce@netbsd.org",
                      "security-advisories@freebsd.org",
                      "midnightbsd-security@midnightbsd.org",
-                     "security-announce@lists.pfsense.org"]
+                     "security-announce@lists.pfsense.org", ENV["TEST_EMAIL"]]
     to = @email.to.map { |a| a[:email].downcase }
     cc = @email.cc.map { |a| a[:email].downcase }
     acceptable_to & to + cc
@@ -39,6 +39,8 @@ class EmailProcessor
   def process
     case find_list[0]
     when ENV["TEST_EMAIL"]
+      puts "TEST"
+      puts ENV["TEST_EMAIL"] == find_list[0]
       create_article("Test")
     when "announce@openbsd.org"
       create_article("OpenBSD")
