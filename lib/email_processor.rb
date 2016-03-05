@@ -38,6 +38,8 @@ class EmailProcessor
 
   def process
     case find_list[0]
+    when ENV["TEST_EMAIL"]
+      create_article("Test")
     when "announce@openbsd.org"
       create_article("OpenBSD")
     when "freebsd-announce@freebsd.org"
