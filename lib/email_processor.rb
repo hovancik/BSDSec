@@ -12,12 +12,16 @@ class EmailProcessor
                              from: @email.from[:email].to_s,
                              tag_list: tag_list.downcase)
     f_id = article.friendly_id
-    twitter_client.update(@email.subject[0..100] +
-      "... #{tag_list_to_hashtag(tag_list)} \
-      https://bsdsec.net/articles/#{f_id}")
-    reddit_client.submit(article.title[0..100] + "...",
-                         "bsdsec",
-                         url: "https://bsdsec.net/articles/#{f_id}")
+    if ENV["TWITTER"]
+      twitter_client.update(@email.subject[0..100] +
+        "... #{tag_list_to_hashtag(tag_list)} \
+        https://bsdsec.net/articles/#{f_id}")
+    end
+    if ENV["REDDIT"]
+      reddit_client.submit(article.title[0..100] + "...",
+                           "bsdsec",
+                           url: "https://bsdsec.net/articles/#{f_id}")
+    end
   end
 
   def find_list
@@ -63,17 +67,17 @@ class EmailProcessor
   private
 
   def reddit_client
-    reddit_client = RedditKit::Client.new ENV["reddit_name"], ENV["reddit_pass"]
+    reddit_client = RedditKit::Client.new ENV["REDDIT_NAME"], ENV["REDDIT_PASS"]
     reddit_client.user_agent = "BSDSec.net"
     reddit_client
   end
 
   def twitter_client
     Twitter::REST::Client.new do |config|
-      config.consumer_key        = ENV["twitter_consumer_key"]
-      config.consumer_secret     = ENV["twitter_consumer_secret"]
-      config.access_token        = ENV["twitter_access_token"]
-      config.access_token_secret = ENV["twitter_access_token_secret"]
+      config.consumer_key        = ENV["TWITTER_CONSUMER_KEY"]
+      config.consumer_secret     = ENV["TWITTER_CONSUMER_SECRET"]
+      config.access_token        = ENV["TWITTER_ACCESS_TOKEN"]
+      config.access_token_secret = ENV["TWITTER_ACCESS_TOKEN_SECRET"]
     end
   end
 end
