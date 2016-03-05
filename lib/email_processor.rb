@@ -11,12 +11,13 @@ class EmailProcessor
     article = Article.create(title: @email.subject, body: @email.body,
                              from: @email.from[:email].to_s,
                              tag_list: tag_list.downcase)
+    f_id = article.friendly_id
     twitter_client.update(@email.subject[0..100] +
       "... #{tag_list_to_hashtag(tag_list)} \
-      https://bsdsec.net/articles/#{article.friendly_id}")
+      https://bsdsec.net/articles/#{f_id}")
     reddit_client.submit(article.title[0..100] + "...",
                          "bsdsec",
-                         url: "https://bsdsec.net/articles/#{article.friendly_id}")
+                         url: "https://bsdsec.net/articles/#{f_id}")
   end
 
   def find_list
