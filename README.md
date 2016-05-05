@@ -25,7 +25,7 @@ DragonflyBSD, PC-BSD doesn't seems to have any announce mailing list or Security
 App has very simple design, whatever-device friendly. (<b>Any designer here?</b> Would love to get some logo maybe ;] At least for favicon.)
 
 #### How it works
-* As I mentioned, this is a Ruby on Rails app (Rails 4.2.0, ruby 2.2.4). 
+* As I mentioned, this is a Ruby on Rails app (Rails 4.2.0, ruby 2.2.4).
 * I develop on [Koding.com](https://koding.com/R/hovancik). <b>Service is free.</b>
 * to be able to use mail, I use [Mandrill](https://mandrillapp.com/)) with [Griddler](https://github.com/thoughtbot/griddler) gem. <b>Thanks Mandrill for free service!</b>
 * I subscribe lists with my Gmail address and then make a filter to resend the messages.
@@ -38,7 +38,7 @@ So the only money I paid was for Domain, so far.
 ### TO-DO
 * (in prgress) code refactor ;] (anyone?)
 * check other BSDs for SA
-* (done - http://reddit.com/r/bsdsec) create reddit /r for discussions (so it would be on reddit, app and tweets would have link to it )
+* (done, later removed - http://reddit.com/r/bsdsec) create reddit /r for discussions (so it would be on reddit, app and tweets would have link to it )
 * create command line app (eg.: <tt>bsdec --tag freebsd --time week</tt>)
 * (done) upgrade Griddler to version 1
 * make method for adding more tags (like BSDCan, LibreSSL etc. ) as right now it's just freebsd for FreeBSD list etc...
@@ -51,8 +51,6 @@ So the only money I paid was for Domain, so far.
 Pull Requests are very welcome.
 
 I do love learning new stuff and I hope this can become community project. I would like to get some RSpec testing on so this all would become much easier.
-
-Right now BSDSec runs on develop branch (yeah, I know). Might change in future.
 
 ## I see ... Errors!
 

@@ -19,8 +19,7 @@
 <div class="social">
   <%= link_to fa_icon('rss'), "/articles.atom", class: "fa-lg", title: "Subscribe"  %>
   <%= link_to fa_icon('github'), "https://github.com/hovancik/BSDSec",class: "fa-lg",title: "fork me" %>
-  <%= link_to fa_icon('reddit'), "https://reddit.com/r/bsdsec" , class: "fa-lg",title: "r/bsdsec" %>
-  <%= link_to fa_icon('twitter'), "https://twitter.com/bsdsec", class: "fa-lg",title: "Twitter" %> 
+  <%= link_to fa_icon('twitter'), "https://twitter.com/bsdsec", class: "fa-lg",title: "Twitter" %>
 </div>
 <p class="site_subtitle">deadsimple BSD Security Advisories and Announcements </p>
 </header>
@@ -30,16 +29,15 @@
 <footer>
 <p><%= link_to "ABOUT", "/about", title:"about BSDSec.net" %>
 <% tags.each do |tag| %>
-  | <%= link_to tag.name.upcase, tag_path(tag),title: "articles tagged with " + tag.name %>  
-<% end %>  
+  | <%= link_to tag.name.upcase, tag_path(tag),title: "articles tagged with " + tag.name %>
+<% end %>
  </p>
 
 <p>made with &hearts; by <%= link_to "Jan Hovancik", "http://hovancik.net", title:"Website of Jan Hovancik" %> </p>
  <div class="social">
   <%= link_to fa_icon('rss'), "/articles.atom", title: "Subscribe"  %>
   <%= link_to fa_icon('github'), "https://github.com/hovancik/BSDSec" ,title: "fork me"  %>
-  <%= link_to fa_icon('reddit'), "https://reddit.com/r/bsdsec" ,title: "r/bsdsec"  %>
-  <%= link_to fa_icon('twitter'), "https://twitter.com/bsdsec" ,title: "Twitter" %> 
+  <%= link_to fa_icon('twitter'), "https://twitter.com/bsdsec" ,title: "Twitter" %>
 </div>
 </footer>
 <script>
