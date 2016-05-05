@@ -17,11 +17,6 @@ class EmailProcessor
         "... #{tag_list_to_hashtag(tag_list)} \
         https://bsdsec.net/articles/#{f_id}")
     end
-    if ENV["REDDIT"]
-      reddit_client.submit(article.title[0..100] + "...",
-                           "bsdsec",
-                           url: "https://bsdsec.net/articles/#{f_id}")
-    end
   end
 
   def find_list
@@ -69,12 +64,6 @@ class EmailProcessor
   end
 
   private
-
-  def reddit_client
-    reddit_client = RedditKit::Client.new ENV["REDDIT_NAME"], ENV["REDDIT_PASS"]
-    reddit_client.user_agent = "BSDSec.net"
-    reddit_client
-  end
 
   def twitter_client
     Twitter::REST::Client.new do |config|

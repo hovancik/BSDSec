@@ -66,9 +66,6 @@ gem 'friendly_id', '~> 5.1'
 # FONT AWESOME
 gem 'font-awesome-rails', '~> 4.5'
 
-#REDDIT
-gem 'redditkit', '~> 1.0', '>= 1.0.2'
-
 #HEROKU
 gem 'rails_12factor', group: :production
 
