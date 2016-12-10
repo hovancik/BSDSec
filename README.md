@@ -62,3 +62,8 @@ Copyright © 2014 Jan Hovancik <conta.srdr@gmail.com>
 This work is free. You can redistribute it and/or modify it under the
 terms of the Do What The Fuck You Want To Public License, Version 2,
 as published by Sam Hocevar. See http://www.wtfpl.net/ for more details.
+
+## Support on Beerpay
+Hey dude! Help me out for a couple of :beers:!
+
+[![Beerpay](https://beerpay.io/hovancik/BSDSec/badge.svg?style=beer-square)](https://beerpay.io/hovancik/BSDSec)  [![Beerpay](https://beerpay.io/hovancik/BSDSec/make-wish.svg?style=flat-square)](https://beerpay.io/hovancik/BSDSec?focus=wish)
