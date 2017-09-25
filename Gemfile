@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
-ruby "2.2.4"
+ruby "2.4.2"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5.2'
+gem 'rails', '~> 4.2', '>= 4.2.9'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -70,4 +70,4 @@ gem 'font-awesome-rails', '~> 4.5'
 gem 'rails_12factor', group: :production
 
 # PUMA (for heroku)
-gem 'puma', '~> 2.15', '>= 2.15.3'
+gem 'puma', '~> 3.6'
