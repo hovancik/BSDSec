@@ -13,7 +13,7 @@ class EmailProcessor
                              tag_list: tag_list.downcase)
     f_id = article.friendly_id
     if ENV["TWITTER"]
-      twitter_client.update(@email.subject[0..100] +
+      twitter_client.update("#BSDSec " + @email.subject[0..100] +
         "... #{tag_list_to_hashtag(tag_list)} \
         https://bsdsec.net/articles/#{f_id}")
     end
