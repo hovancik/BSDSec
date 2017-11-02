@@ -16,54 +16,56 @@
  */
 
 header {
+  color: #50585d;
   margin: 40px auto;
   text-align: center;
-  color: #50585d;
 }
 
 h1, h2, h3 {
   color: #50585d;
-  font-family: "Noto Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-  line-height: 1;
+  font-family: "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700;
+  line-height: 1;
 }
 
 .article_link {
-  font-size:1.4rem;
+  font-size: 1.4rem;
 }
 
-span, p , span a {
-  color: #50585d; 
+span, p, span a {
+  color: #50585d;
   font-size: 1rem;
   font-weight: 400;
 }
 
 a {
-  text-decoration:none;
-  color: #226599; 
+  color: #226599;
+  text-decoration: none;
 }
 
 a:hover {
-  color: #226599; 
+  color: #226599;
   text-decoration: underline;
 }
 
 .social a {
-  color:#bbb;
+  color: #bbb;
 }
 
 .social a:hover {
-  color:#226599;
+  color: #226599;
 }
+
 .site_title {
-    margin-bottom:5px;
+  margin-bottom: 5px;
 }
+
 .site_title a {
-  text-decoration:none;
-  color: #226599; 
+  color: #226599;
   font-size: 4rem;
   font-weight: 700;
   letter-spacing: -1px;
+  text-decoration: none;
   text-shadow: 0 1px 4px rgba(1, 1, 1, 0.25);
 }
 
@@ -77,20 +79,20 @@ a:hover {
 }
 
 .article_info, .article_info a {
-  margin: 2px 0;
   color: #9eabb3;
   font-size: 0.8rem;
+  margin: 2px 0;
 }
 
 .article_title {
-  margin-bottom:0;
   color: #226599;
+  margin-bottom: 0;
 }
 
 main {
-  max-width: 78%;
-  margin: 5% auto 0 auto;
   line-height: 1.6rem;
+  margin: 5% auto 0 auto;
+  max-width: 78%;
 }
 
 ul li {
@@ -98,28 +100,60 @@ ul li {
 }
 
 footer {
-  color: #50585d; 
+  color: #50585d;
   margin: 0 auto;
   text-align: center;
 }
+
 footer p {
-    font-size: .9rem;
-    margin:5px;
+  font-size: .9rem;
+  margin: 5px;
+}
+
 .patreaon {
   margin: 5px;
 }
 
 pre {
-  white-space: -moz-pre-wrap; /* Mozilla, supported since 1999 */
-  white-space: -pre-wrap; /* Opera */
-  white-space: -o-pre-wrap; /* Opera */
-  white-space: pre-wrap; /* CSS3 - Text module (Candidate Recommendation) http://www.w3.org/TR/css3-text/#white-space */
-  word-wrap: break-word; /* IE 5.5+ */
+  white-space: -moz-pre-wrap;
+  /* Mozilla, supported since 1999 */
+  white-space: -pre-wrap;
+  /* Opera */
+  white-space: -o-pre-wrap;
+  /* Opera */
+  white-space: pre-wrap;
+  /* CSS3 - Text module (Candidate Recommendation) http://www.w3.org/TR/css3-text/#white-space */
+  word-wrap: break-word;
+  /* IE 5.5+ */
 }
 
+.pagination {
+  margin: .3em;
+  padding: .3em;
+}
 
-.pagination {padding:.3em;margin:.3em;}
-.pagination a{padding:.1em .3em;margin:.2em;font-size: 1.7rem; }
-.pagination a:hover,.pagination a:active{color:#000;}
-.pagination .current{padding:.1em .3em;margin:.2em;font-weight:bold;background-color:#369;color:#FFF;font-size: 1.7rem; }
-.pagination .disabled{padding:.1em .3em;margin:.2em;color:#ddd; font-size: 1.7rem;}
+.pagination a {
+  font-size: 1.7rem;
+  margin: .2em;
+  padding: .1em .3em;
+}
+
+.pagination a:hover, .pagination a:active {
+  color: #000;
+}
+
+.pagination .current {
+  background-color: #369;
+  color: #FFF;
+  font-size: 1.7rem;
+  font-weight: bold;
+  margin: .2em;
+  padding: .1em .3em;
+}
+
+.pagination .disabled {
+  color: #ddd;
+  font-size: 1.7rem;
+  margin: .2em;
+  padding: .1em .3em;
+}
