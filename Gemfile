@@ -1,16 +1,16 @@
 source 'https://rubygems.org'
-ruby "2.4.2"
+ruby "2.5.1"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.2', '>= 4.2.9'
+gem 'rails', '~> 5.2', '>= 5.2.1'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0', '>= 5.0.4'
+gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '~> 2.7', '>= 2.7.2'
+gem 'uglifier'
 # Use CoffeeScript for .js.coffee assets and views
- gem 'coffee-rails', '~> 4.0.0'
+ # gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
@@ -37,37 +37,34 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 3.0'
-
+  gem 'listen'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
 
 #Twitter gem
-gem 'twitter', '~> 5.15'
+gem 'twitter'
 
 #FIGARO
-gem 'figaro', '~> 1.1', '>= 1.1.1'
+gem 'figaro'
 
 #GRIDLER
-gem 'griddler', '~> 1.3'
-gem 'griddler-mailgun', '~> 1.0', '>= 1.0.2'
+gem 'griddler'
+gem 'griddler-mailgun'
 
 #NEW RELIC
-gem 'newrelic_rpm', '~> 3.14', '>= 3.14.1.311'
+gem 'newrelic_rpm'
 
 #PAGINATION
-gem 'kaminari', '~> 0.16.3'
+gem 'kaminari'
 
 #FRIENDLY_ID
-gem 'friendly_id', '~> 5.1'
+gem 'friendly_id'
 
 # FONT AWESOME
-gem 'font-awesome-rails', '~> 4.5'
-
-#HEROKU
-gem 'rails_12factor', group: :production
+gem 'font-awesome-rails'
 
 # PUMA (for heroku)
-gem 'puma', '~> 3.6'
+gem 'puma'
+
+gem 'bootsnap'

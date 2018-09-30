@@ -1,2 +1,2 @@
-class Email < ActiveRecord::Base
+class Email < ApplicationRecord
 end
