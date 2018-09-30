@@ -10,8 +10,6 @@ Any [criticism](https://github.com/hovancik/BSDSec/issues) very welcome. Please 
 
 ### Current Status
 
-This app is in very-alfa stage.
-
 App does receive emails (with [Griddler](https://github.com/thoughtbot/griddler) and [Mailgun](https://mailgun.com), then save it as Article and Tweet about it (with [Twitter](https://github.com/sferik/twitter) gem):
 * FreeBSD
 * OpenBSD
