@@ -5,12 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="flattr:id" content="en32oj">
-  <meta property="og:image" content="<%= image_url('bsdsec.png') %>" />
+  <meta property="og:image" content="<%= asset_pack_url 'media/images/bsdsec.png' %>" />
   <meta name="description" content="Deadsimple BSD Security Advisories and Announcements">
   <link href='//fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+  <%= javascript_pack_tag 'application' %>
+  <%= stylesheet_pack_tag 'application' %>
   <%= auto_discovery_link_tag(:rss, articles_url(:format => :atom)) %>
   <!-- Matomo -->
   <script type="text/javascript">
@@ -33,9 +32,15 @@
 
 <h1 class="site_title"><%= link_to "BSDSec", root_path, title:"deadsimple BSD Security Advisories and Announcements" %> </h1>
 <div class="social">
-  <%= link_to fa_icon('rss'), "/articles.atom", class: "fa-lg", title: "Subscribe"  %>
-  <%= link_to fa_icon('github'), "https://github.com/hovancik/BSDSec",class: "fa-lg",title: "fork me" %>
-  <%= link_to fa_icon('twitter'), "https://twitter.com/bsdsec", class: "fa-lg",title: "Twitter" %>
+  <%= link_to "/articles.atom", class: "fa-lg", title: "Subscribe"  do %>
+    <i class="fas fa-rss"></i>
+  <% end %>
+  <%= link_to "https://github.com/hovancik/BSDSec",class: "fa-lg",title: "fork me" do %>
+    <i class="fab fa-github"></i>
+  <% end %>
+  <%= link_to "https://twitter.com/bsdsec", class: "fa-lg",title: "Twitter" do %>
+    <i class="fab fa-twitter"></i>
+  <% end %>
 </div>
 <p class="site_subtitle">deadsimple BSD Security Advisories and Announcements </p>
 </header>
@@ -53,9 +58,15 @@
 </p>
 <p>made with &hearts; by <%= link_to "Jan Hovancik", "http://hovancik.net", title:"Website of Jan Hovancik" %> </p>
  <div class="social">
-  <%= link_to fa_icon('rss'), "/articles.atom", title: "Subscribe"  %>
-  <%= link_to fa_icon('github'), "https://github.com/hovancik/BSDSec" ,title: "fork me"  %>
-  <%= link_to fa_icon('twitter'), "https://twitter.com/bsdsec" ,title: "Twitter" %>
+  <%= link_to "/articles.atom", title: "Subscribe" do %>
+    <i class="fas fa-rss"></i>
+  <% end %>
+  <%= link_to "https://github.com/hovancik/BSDSec" ,title: "fork me" do %>
+    <i class="fab fa-github"></i>
+  <% end %>
+  <%= link_to "https://twitter.com/bsdsec" ,title: "Twitter" do %>
+    <i class="fab fa-twitter"></i>
+  <% end %>
 </div>
 <div class="patreaon">
   <a href="https://www.patreon.com/bePatron?u=2449338" data-patreon-widget-type="become-patron-button">Become a Patron!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
