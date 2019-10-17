@@ -1,0 +1,24 @@
+version: '3'
+services:
+  webpacker:
+    build: .
+    env_file:
+      - '.env.docker'
+    command: ./bin/webpack-dev-server
+    volumes:
+      - .:/webpacker-example-app
+    ports:
+      - '3035:3035'
+  db:
+    image: postgres
+    ports:
+      - "5431:5432"
+  web:
+    build: .
+    command: bash -c "rm -rf ./tmp/pids/server.pid && bundle exec rails s -p 4000 -b '0.0.0.0'"
+    volumes:
+      - .:/BSDSec
+    ports:
+      - "4000:4000"
+    depends_on:
+      - db

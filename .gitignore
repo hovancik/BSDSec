@@ -18,3 +18,14 @@
 # Ignore application configuration
 /config/application.yml
 .env
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+
+.byebug_history
+
+/storage
