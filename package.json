@@ -1,4 +1,6 @@
 {
+  "name": "BSDSec",
+  "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.11.2",
     "@rails/webpacker": "^4.0.7"

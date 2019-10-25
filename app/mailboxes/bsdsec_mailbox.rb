@@ -42,8 +42,8 @@ class BsdsecMailbox < ApplicationMailbox
     f_id = article.friendly_id
     if ENV.fetch("TWITTER", nil)
       twitter_client.update("#BSDSec " + mail.subject[0..100] +
-        "... #{tag_list_to_hashtag(tag_list)} \
-        https://bsdsec.net/articles/#{f_id}")
+        "... \r\n #{tag_list_to_hashtag(tag_list)} \r\nhttps://bsdsec.net/articles/#{f_id}")
+
     end
   end
 
