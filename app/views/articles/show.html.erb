@@ -1,12 +1,41 @@
+<% content_for :meta do %>
+  <!-- COMMON TAGS -->
+  <title>BSDSec | <%= art_title(@article.title) %></title>
+  <!-- Search Engine -->
+  <meta name="description" content="<%= @article.body[0..200] %>...">
+  <meta name="image" content="<%= motif_image_url(url: article_url(@article)) %>">
+  <!-- Schema.org for Google -->
+  <meta itemprop="name" content="<%= @article.title %>">
+  <meta itemprop="description" content="<%= @article.body[0..200] %>...">
+  <meta itemprop="image" content="<%= motif_image_url(url: article_url(@article)) %>">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="<%= @article.title %>">
+  <meta name="twitter:description" content="<%= @article.body[0..200] %>...">
+  <meta name="twitter:site" content="https://bsdsec.net">
+  <meta name="twitter:image" content="<%= motif_image_url(url: article_url(@article)) %>">
+  <!-- Twitter - Article -->
+  <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+  <meta property="og:title" content="<%= @article.title %>">
+  <meta property="og:description" content="<%= @article.body[0..200] %>...">
+  <meta property="og:image" content="<%= motif_image_url(url: article_url(@article)) %>">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="<%= article_url(@article) %>">
+  <!-- Open Graph - Article -->
+  <meta property="article:section" content="Technology">
+  <meta property="article:published_time" content="<%= @article.created_at %>">
+<% end %>
+
 <% content_for :title, "BSDSec | #{art_title(@article.title)}" %>
+
 <article>
   <h2 class="article_title"><%= art_title(@article.title) %></h2>
   <p class="article_info">
-    <%= art_date(@article.created_at)%> by <%= art_mail(@article.from) %> |
+    <%= art_date(@article.created_at)%> by <%= @article.from %> |
     <% @article.tags.each do |tag| %>
       <%= link_to tag.name, tag_path(tag), title: "articles tagged with " + tag.name %>
     <% end %>
   </p>
-  <pre><%= art_body(@article.body) %></pre>
+  <pre><%= @article.body %></pre>
   <%= render "disqus" %>
 </article>
