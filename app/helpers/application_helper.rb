@@ -9,6 +9,6 @@ module ApplicationHelper
   end
 
   def motif_image_url(url: root_url)
-    "https://motif.imgix.com/i?url=#{u url}&image_url=#{u image_url '/img/pasture-fence-1995820_1920.jpg' }&color=6e6e6e&logo_url=&logo_alignment=bottom%2Cright&text_alignment=top%2Cleft&logo_padding=0&font_family=Avenir%20Next%20Demi%2CBold&text_color=ffffff"
+    "https://motif.imgix.com/i?url=#{u url}&image_url=#{u image_url '/img/pankaj-patel-fvMeP4ml4bU-unsplash.jpg' }&color=b1d6f4&logo_url=#{u image_url '/img/bsdsec.png' }&logo_alignment=top%2Ccenter&text_alignment=bottom%2Ccenter&logo_padding=70&font_family=Avenir%20Next%20Demi%2CBold&text_color=1d1d1d"
   end
 end
