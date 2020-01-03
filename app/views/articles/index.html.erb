@@ -1,29 +1,27 @@
 <% content_for :meta do %>
   <!-- COMMON TAGS -->
-  <title>BSDSec | Deadsimple BSD Security Advisories and Announcements</title>
+  <title>BSDSec - Deadsimple BSD Security Advisories and Announcements</title>
   <!-- Search Engine -->
   <meta name="description" content="Deadsimple BSD Security Advisories and Announcements">
   <meta name="image" content="<%= motif_image_url %>">
   <!-- Schema.org for Google -->
-  <meta itemprop="name" content="BSDSec">
+  <meta itemprop="name" content="BSDSec - BSD Security Advisories">
   <meta itemprop="description" content="Deadsimple BSD Security Advisories and Announcements">
   <meta itemprop="image" content="<%= motif_image_url %>">
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="BSDSec">
+  <meta name="twitter:title" content="BSDSec - BSD Security Advisories">
   <meta name="twitter:description" content="Deadsimple BSD Security Advisories and Announcements">
   <meta name="twitter:site" content="https://bsdsec.net">
   <meta name="twitter:image" content="<%= motif_image_url %>">
   <!-- Twitter - Article -->
   <!-- Open Graph general (Facebook, Pinterest & Google+) -->
-  <meta property="og:title" content="BSDSec">
+  <meta property="og:title" content="BSDSec - BSD Security Advisories">
   <meta property="og:description" content="Deadsimple BSD Security Advisories and Announcements">
   <meta property="og:image" content="<%= motif_image_url %>">
   <meta property="og:type" content="article">
   <meta property="og:url" content="<%= root_url %>">
 <% end %>
-
-<% content_for :title, "BSDSec | Deadsimple BSD Security Advisories and Announcements" %>
 
 <div>
   <% @articles.each do |article| %>
