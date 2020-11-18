@@ -6,13 +6,17 @@ services:
       - '.env.docker'
     command: ./bin/webpack-dev-server
     volumes:
-      - .:/webpacker-example-app
+      - .:/BSDSec
     ports:
       - '3035:3035'
+    network_mode: "bridge"
   db:
     image: postgres
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
     ports:
       - "5431:5432"
+    network_mode: "bridge"
   web:
     build: .
     command: bash -c "rm -rf ./tmp/pids/server.pid && bundle exec rails s -p 4000 -b '0.0.0.0'"
@@ -22,3 +26,6 @@ services:
       - "4000:4000"
     depends_on:
       - db
+    links:
+      - db:db
+    network_mode: "bridge"
