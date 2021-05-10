@@ -34,6 +34,6 @@
       <%= link_to tag.name, tag_path(tag), title: "articles tagged with " + tag.name %>
     <% end %>
   </p>
-  <pre><%= @article.body %></pre>
+  <pre><%= art_body @article.body %></pre>
   <%= render "disqus" %>
 </article>
