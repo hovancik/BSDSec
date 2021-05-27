@@ -13,6 +13,8 @@ class BsdsecMailbox < ApplicationMailbox
       create_article("FreeBSD")
     when "errata-notices@freebsd.org"
       create_article("FreeBSD")
+    when "core@freebsd.org"
+      create_article("FreeBSD")
     when "midnightbsd-security@midnightbsd.org"
       create_article("MidnightBSD")
     when "netbsd-announce@netbsd.org"
@@ -51,7 +53,7 @@ class BsdsecMailbox < ApplicationMailbox
     acceptable_to = ["announce@freebsd.org", "errata-notices@freebsd.org",
                      "announce@openbsd.org", "freebsd-announce@freebsd.org",
                      "netbsd-announce@netbsd.org", "announce@netbsd.org",
-                     "security-advisories@freebsd.org",
+                     "security-advisories@freebsd.org", "core@freebsd.org",
                      "midnightbsd-security@midnightbsd.org",
                      "security-announce@lists.pfsense.org", ENV.fetch("TEST_EMAIL")]
     (acceptable_to & tos + ccs).first
