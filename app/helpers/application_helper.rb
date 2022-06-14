@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   def art_body(text)
-    text.lines.map { |c| c.unpack("M*") }.join
+    text.lines.map { |c| c.unpack("M*") }.join.force_encoding('UTF-8')
   end
 
   def motif_image_url(url: root_url)
