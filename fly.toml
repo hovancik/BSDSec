@@ -1,0 +1,52 @@
+# fly.toml file generated for bsdsec on 2023-01-01T09:43:04+01:00
+
+app = "bsdsec"
+kill_signal = "SIGINT"
+kill_timeout = 5
+
+[build]
+  builder = "heroku/buildpacks:20"
+  buildpacks = ["heroku/nodejs", "heroku/ruby"]
+
+  [build.args]
+    SECRET_KEY_BASE="asdf"
+
+[deploy]
+  release_command = "rails db:migrate"
+
+[env]
+
+[experimental]
+  allowed_public_ports = []
+  cmd = []
+  entrypoint = []
+  exec = []
+
+[processes]
+  app = "puma -C config/puma.rb"
+
+[[services]]
+  http_checks = []
+  internal_port = 3000
+  processes = ["app"]
+  protocol = "tcp"
+  script_checks = []
+  [services.concurrency]
+    hard_limit = 25
+    soft_limit = 20
+    type = "connections"
+
+  [[services.ports]]
+    force_https = true
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+
+  [[services.tcp_checks]]
+    grace_period = "1s"
+    interval = "15s"
+    restart_limit = 0
+    timeout = "2s"
