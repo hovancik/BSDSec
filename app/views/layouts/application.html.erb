@@ -10,21 +10,6 @@
   <%= javascript_pack_tag 'application' %>
   <%= stylesheet_pack_tag 'application' %>
   <%= auto_discovery_link_tag(:rss, articles_url(:format => :atom)) %>
-  <!-- Matomo -->
-  <script type="text/javascript">
-    var _paq = _paq || [];
-    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-    _paq.push(['trackPageView']);
-    _paq.push(['enableLinkTracking']);
-    (function() {
-      var u="//stats.hovancik.net/";
-      _paq.push(['setTrackerUrl', u+'piwik.php']);
-      _paq.push(['setSiteId', '3']);
-      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-      g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-    })();
-  </script>
-  <!-- End Matomo Code -->
   <%= yield(:meta) %>
 </head>
 <body>
@@ -77,26 +62,5 @@
   </a>
 </div>
 </footer>
-<!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
-<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
-<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
-<script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-    "palette": {
-      "popup": {
-        "background": "#edeff5",
-        "text": "#838391"
-      },
-      "button": {
-        "background": "#4b81e8"
-      }
-    },
-    "theme": "classic",
-    "position": "bottom-right"
-  })});
-</script>
-<!-- End Cookie Consent plugin -->
-
 </body>
 </html>
