@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "2.7.6"
+ruby "3.2.3"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0'
@@ -7,6 +7,8 @@ gem 'rails', '~> 6.0'
 gem 'pg'
 # Webpacker
 gem 'webpacker'
+
+gem 'sass-rails', '~> 6.0'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 # gem 'sdoc', '~> 0.4.0', group: :doc
@@ -32,6 +34,8 @@ group :development, :test do
   gem 'spring'
   # A Ruby gem to load environment variables from `.env`.
   gem 'dotenv-rails'
+  # Code coverage
+  gem 'simplecov', require: false
 end
 
 #Twitter gem

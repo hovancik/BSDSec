@@ -1,0 +1,1 @@
+from https://github.com/luizkowalski/devcontainer-rails

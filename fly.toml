@@ -1,14 +1,15 @@
-# fly.toml app configuration file generated for bsdsec on 2023-08-07T10:58:11+02:00
+# fly.toml app configuration file generated for bsdsec on 2023-09-15T18:52:57+02:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
 app = "bsdsec"
+primary_region = "fra"
 kill_signal = "SIGINT"
 kill_timeout = "5s"
 
 [build]
-  builder = "heroku/buildpacks:20"
+  builder = "heroku/builder:22"
   buildpacks = ["heroku/nodejs", "heroku/ruby"]
   [build.args]
     SECRET_KEY_BASE = "asdf"
