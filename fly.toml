@@ -1,39 +1,41 @@
-# fly.toml app configuration file generated for bsdsec on 2023-09-15T18:52:57+02:00
+# fly.toml app configuration file generated for bsdsec on 2024-03-07T19:49:34+01:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "bsdsec"
-primary_region = "fra"
-kill_signal = "SIGINT"
-kill_timeout = "5s"
+app = 'bsdsec'
+primary_region = 'fra'
+kill_signal = 'SIGINT'
+kill_timeout = '5s'
 
 [build]
-  builder = "heroku/builder:22"
-  buildpacks = ["heroku/nodejs", "heroku/ruby"]
+  builder = 'heroku/builder:22'
+  buildpacks = ['heroku/nodejs', 'heroku/ruby']
+
   [build.args]
-    SECRET_KEY_BASE = "asdf"
+    SECRET_KEY_BASE = 'asdf'
 
 [deploy]
-  release_command = "rails db:migrate"
+  release_command = 'rails db:migrate'
 
 [processes]
-  app = "puma -C config/puma.rb"
+  app = 'puma -C config/puma.rb'
 
 [[services]]
-  protocol = "tcp"
+  protocol = 'tcp'
   internal_port = 3000
-  processes = ["app"]
+  processes = ['app']
 
-  [[services.ports]]
+[[services.ports]]
     port = 80
-    handlers = ["http"]
+    handlers = ['http']
     force_https = true
 
-  [[services.ports]]
+[[services.ports]]
     port = 443
-    handlers = ["tls", "http"]
+    handlers = ['tls', 'http']
+
   [services.concurrency]
-    type = "connections"
+    type = 'connections'
     hard_limit = 25
     soft_limit = 20
