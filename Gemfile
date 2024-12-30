@@ -38,8 +38,8 @@ group :development, :test do
   gem 'simplecov', require: false
 end
 
-#Twitter gem
-gem 'twitter'
+# Sending tweets to Twitter
+gem 'x', '~> 0.14.1'
 
 #NEW RELIC
 gem 'newrelic_rpm'
