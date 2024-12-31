@@ -12,7 +12,7 @@
       "version": "latest"
     },
     "ghcr.io/devcontainers/features/ruby:1": {
-      "version": "3.2.3"
+      "version": "3.3.6"
     },
     "ghcr.io/devcontainers/features/node:1": {
       "version": "16.19.0"
@@ -31,21 +31,23 @@
       "plugins": "bundler rails ruby yarn"
     }
   },
-
   // Configure tool-specific properties.
   "customizations": {
     "vscode": {
-      "extensions": ["Shopify.ruby-lsp"]
+      "extensions": [
+        "Shopify.ruby-lsp"
+      ]
     }
   },
-
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // This can be used to network with other containers or the host.
-  "forwardPorts": [2222, 3000, 5433],
-
+  "forwardPorts": [
+    2222,
+    3000,
+    5433
+  ],
   // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": ".devcontainer/boot.sh"
-
   // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
   // "remoteUser": "root"
 }

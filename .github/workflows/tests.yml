@@ -2,10 +2,10 @@ name: Tests
 on: [push, pull_request]
 jobs:
   test:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu
     services:
       postgres:
-        image: postgres:10
+        image: postgres:16
         env:
           POSTGRES_PASSWORD: postgres
         ports: ['5432:5432']
@@ -19,7 +19,7 @@ jobs:
       - name: Install Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.2.3
+          ruby-version: 3.3.6
       - name: Install Bundler
         run: gem install bundler
       - name: Install Node
