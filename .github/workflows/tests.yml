@@ -2,7 +2,7 @@ name: Tests
 on: [push, pull_request]
 jobs:
   test:
-    runs-on: ubuntu
+    runs-on: ubuntu-latest
     services:
       postgres:
         image: postgres:16
@@ -20,6 +20,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.3.6
+      - run: gem update --system    
       - name: Install Bundler
         run: gem install bundler
       - name: Install Node
