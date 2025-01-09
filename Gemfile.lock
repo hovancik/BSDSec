@@ -60,6 +60,7 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
+    ast (2.4.2)
     bootsnap (1.18.4)
       msgpack (~> 1.2)
     builder (3.3.0)
@@ -141,6 +142,9 @@ GEM
       racc (~> 1.4)
     nokogiri (1.18.1-x86_64-linux-musl)
       racc (~> 1.4)
+    parser (3.3.6.0)
+      ast (~> 2.4.1)
+      racc
     pg (1.5.9)
     puma (6.5.0)
       nio4r (~> 2.0)
@@ -192,6 +196,8 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    scout_apm (5.5.0)
+      parser
     semantic_range (3.1.0)
     simplecov (0.22.0)
       docile (~> 1.1)
@@ -244,6 +250,7 @@ DEPENDENCIES
   puma
   rails (~> 6.0)
   sass-rails (~> 6.0)
+  scout_apm
   simplecov
   spring
   webpacker

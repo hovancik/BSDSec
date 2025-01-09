@@ -51,3 +51,6 @@ gem 'friendly_id'
 gem 'puma'
 
 gem 'bootsnap'
+
+# Monitoring
+gem 'scout_apm'
