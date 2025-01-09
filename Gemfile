@@ -41,9 +41,6 @@ end
 # Sending tweets to Twitter
 gem 'x', '~> 0.14.1'
 
-#NEW RELIC
-gem 'newrelic_rpm'
-
 #PAGINATION
 gem 'kaminari'
 
