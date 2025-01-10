@@ -54,3 +54,6 @@ gem 'bootsnap'
 
 # Monitoring
 gem 'scout_apm'
+
+# Error tracking
+gem 'rollbar'
