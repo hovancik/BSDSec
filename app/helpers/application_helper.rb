@@ -9,6 +9,10 @@ module ApplicationHelper
   end
 
   def art_body(text)
+    text.lines.map { |c| c.unpack("M*") }.join.force_encoding('UTF-8')
+  end
+
+  def art_body_html(text)
     decoded = text.lines.map { |c| c.unpack("M*") }.join.force_encoding('UTF-8')
     # Convert newlines to HTML break tags for proper display in RSS feeds
     decoded.gsub(/\n/, '<br>')

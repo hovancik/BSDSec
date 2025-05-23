@@ -5,7 +5,7 @@ atom_feed do |feed|
   @articles.each do |article|
     feed.entry(article) do |entry|
       entry.title(art_title(article.title))
-      entry.content(art_body(article.body), type: 'html')
+      entry.content(art_body_html(article.body), type: 'html')
       entry.tags(article.tag_list)
       entry.author do |author|
         author.name(article.from)
