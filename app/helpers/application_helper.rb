@@ -9,7 +9,9 @@ module ApplicationHelper
   end
 
   def art_body(text)
-    text.lines.map { |c| c.unpack("M*") }.join.force_encoding('UTF-8')
+    decoded = text.lines.map { |c| c.unpack("M*") }.join.force_encoding('UTF-8')
+    # Convert newlines to HTML break tags for proper display in RSS feeds
+    decoded.gsub(/\n/, '<br>')
   end
 
   def motif_image_url(url: root_url)
