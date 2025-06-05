@@ -9,6 +9,6 @@
     "@rails/webpacker": "^5.3.0"
   },
   "devDependencies": {
-    "webpack-dev-server": "^3.8.1"
+    "webpack-dev-server": "^5.2.1"
   }
 }
