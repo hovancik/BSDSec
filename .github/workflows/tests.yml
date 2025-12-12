@@ -19,14 +19,10 @@ jobs:
       - name: Install Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.3.6
+          ruby-version: 3.3.10
       - run: gem update --system    
       - name: Install Bundler
         run: gem install bundler
-      - name: Install Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: 16.19.0
       - name: Setup the Rails application
         env:
           RAILS_ENV: test
@@ -36,7 +32,6 @@ jobs:
           cp config/database.github.yml config/database.yml
           bundle exec rails db:create
           bundle exec rails db:migrate
-          yarn --frozen-lockfile
       - name: Run unit tests
         run: bundle exec rails test
         env:

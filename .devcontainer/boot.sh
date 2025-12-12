@@ -8,7 +8,6 @@ gem update --system -N
 
 echo "Installing dependencies..."
 bundle install
-yarn install
 
 echo "Copying database.yml..."
 cp -n .env.devcontainer .env

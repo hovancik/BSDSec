@@ -11,8 +11,9 @@ gem 'bigdecimal'
 gem 'drb'
 # Use postgresql as the database for Active Record
 gem 'pg'
-# Webpacker
-gem 'webpacker'
+
+# FontAwesome icons
+gem 'font-awesome-sass', '~> 6.5'
 
 gem 'sass-rails', '~> 6.0'
 

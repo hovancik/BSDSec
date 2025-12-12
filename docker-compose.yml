@@ -1,15 +1,5 @@
 version: '3'
 services:
-  webpacker:
-    build: .
-    env_file:
-      - '.env.docker'
-    command: ./bin/webpack-dev-server
-    volumes:
-      - .:/BSDSec
-    ports:
-      - '3035:3035'
-    network_mode: "bridge"
   db:
     image: postgres
     environment:
