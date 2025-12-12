@@ -12,10 +12,10 @@
       "version": "latest"
     },
     "ghcr.io/devcontainers/features/ruby:1": {
-      "version": "3.3.6"
+      "version": "3.3.10"
     },
     "ghcr.io/devcontainers/features/node:1": {
-      "version": "16.19.0"
+      "version": "20.18.0"
     },
     "ghcr.io/devcontainers/features/common-utils:2": {
       "username": "vscode",

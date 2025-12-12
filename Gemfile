@@ -1,8 +1,14 @@
 source 'https://rubygems.org'
-ruby '3.3.6'
+ruby '3.3.10'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0'
+gem 'rails', '~> 6.1.7'
+# Required for Ruby 3.3+ compatibility with Rails 6.1
+gem 'logger'
+gem 'ostruct'
+gem 'mutex_m'
+gem 'bigdecimal'
+gem 'drb'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Webpacker
@@ -30,8 +36,6 @@ group :development, :test do
   gem 'byebug'
 
   gem 'listen'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
   # A Ruby gem to load environment variables from `.env`.
   gem 'dotenv-rails'
   # Code coverage

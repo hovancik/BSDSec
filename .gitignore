@@ -32,3 +32,6 @@ yarn-debug.log*
 .byebug_history
 
 /storage
+
+# Ignore test coverage reports
+/coverage
