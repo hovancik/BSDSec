@@ -34,7 +34,7 @@ gem 'sass-rails', '~> 6.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  gem 'byebug', '~> 12.0'
 
   gem 'listen'
   # A Ruby gem to load environment variables from `.env`.
@@ -44,21 +44,21 @@ group :development, :test do
 end
 
 # Sending tweets to Twitter
-gem 'x', '~> 0.14.1'
+gem 'x', '~> 0.17'
 
 #PAGINATION
 gem 'kaminari'
 
 #FRIENDLY_ID
-gem 'friendly_id'
+gem 'friendly_id', '~> 5.6'
 
 # PUMA (for heroku)
-gem 'puma'
+gem 'puma', '~> 7.0'
 
-gem 'bootsnap'
+gem 'bootsnap', '~> 1.19'
 
 # Monitoring
-gem 'scout_apm'
+gem 'scout_apm', '~> 6.0'
 
 # Error tracking
-gem 'rollbar'
+gem 'rollbar', '~> 3.7'
