@@ -15,4 +15,7 @@ cp -n .env.devcontainer .env
 echo "Creating database..."
 bin/rails db:create db:migrate db:seed
 
+echo "Preparing test database..."
+bin/rails db:test:prepare
+
 echo "Done!"

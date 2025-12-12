@@ -1,4 +1,4 @@
-FROM ruby:3.3.10
+FROM ruby:3.4.1
 
 # Install dependencies including jemalloc for memory optimization
 RUN apt-get update -qq && apt-get install -y libpq-dev libjemalloc2

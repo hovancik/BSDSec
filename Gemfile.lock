@@ -332,7 +332,7 @@ DEPENDENCIES
   sprockets-rails
 
 RUBY VERSION
-  ruby 3.3.10p183
+  ruby 3.4.1
 
 BUNDLED WITH
   4.0.1
