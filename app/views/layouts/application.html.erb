@@ -16,11 +16,11 @@
 
 <h1 class="site_title"><%= link_to "BSDSec", root_path, title:"deadsimple BSD Security Advisories and Announcements" %> </h1>
 <div class="social">
-  <%= link_to "/articles.atom", class: "fa-lg", title: "Subscribe"  do %>
-    <i class="fas fa-rss"></i>
+  <%= link_to "/articles.atom", title: "Subscribe"  do %>
+    <%= icon(:rss, class: "icon-lg") %>
   <% end %>
-  <%= link_to "https://github.com/hovancik/BSDSec",class: "fa-lg",title: "fork me" do %>
-    <i class="fab fa-github"></i>
+  <%= link_to "https://github.com/hovancik/BSDSec", title: "fork me" do %>
+    <%= icon(:github, class: "icon-lg") %>
   <% end %>
 </div>
 <p class="site_subtitle">deadsimple BSD Security Advisories and Announcements </p>
@@ -40,10 +40,10 @@
 <p>made with &hearts; by <%= link_to "Jan Hovancik", "http://hovancik.net", title:"Website of Jan Hovancik" %> </p>
  <div class="social">
   <%= link_to "/articles.atom", title: "Subscribe" do %>
-    <i class="fas fa-rss"></i>
+    <%= icon(:rss, class: "icon-lg") %>
   <% end %>
-  <%= link_to "https://github.com/hovancik/BSDSec" ,title: "fork me" do %>
-    <i class="fab fa-github"></i>
+  <%= link_to "https://github.com/hovancik/BSDSec", title: "fork me" do %>
+    <%= icon(:github, class: "icon-lg") %>
   <% end %>
 </div>
 <div class="sponsor">

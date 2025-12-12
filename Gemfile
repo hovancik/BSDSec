@@ -2,20 +2,13 @@ source 'https://rubygems.org'
 ruby '3.3.10'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1.7'
-# Required for Ruby 3.3+ compatibility with Rails 6.1
-gem 'logger'
-gem 'ostruct'
-gem 'mutex_m'
-gem 'bigdecimal'
-gem 'drb'
+gem 'rails', '~> 7.0.8'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
-# FontAwesome icons
-gem 'font-awesome-sass', '~> 6.5'
-
-gem 'sass-rails', '~> 6.0'
+# Asset pipeline
+gem 'sprockets-rails'
+gem 'dartsass-rails'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 # gem 'sdoc', '~> 0.4.0', group: :doc
