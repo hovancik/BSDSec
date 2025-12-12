@@ -89,10 +89,4 @@ Rails.application.configure do
 
   # Action Mailbox ingress
   config.action_mailbox.ingress = :mailgun
-
-  # Rollbar error tracking
-  config.middleware.insert_after Rack::Sendfile, Rollbar::Middleware::Js
-
-  # ScoutAPM performance monitoring
-  config.middleware.insert_before Rack::Sendfile, ScoutApm::Middleware
 end
