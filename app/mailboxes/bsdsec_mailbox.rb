@@ -33,23 +33,10 @@ class BsdsecMailbox < ApplicationMailbox
 
   private
 
-  def tag_list_to_hashtag(tag_list)
-    tag_list.split(",").map { |i| "##{i} " }.join
-  end
-
   def create_article(tag_list)
     article = Article.create(title: mail.subject, body: mail.body,
                              from: mail.from.first,
                              tag_list: tag_list.downcase)
-    f_id = article.friendly_id
-    if ENV.fetch("TWITTER", nil)
-      payload = {
-        text: "#BSDSec #{mail.subject[0..100]}... \r\n" \
-          "#{tag_list_to_hashtag(tag_list)} \r\n" \
-          "https://bsdsec.net/articles/#{f_id}"
-      }.to_json
-      twitter_client.post('tweets', payload)
-    end
   end
 
   def email_list_address
@@ -76,15 +63,5 @@ class BsdsecMailbox < ApplicationMailbox
     else
       []
     end
-  end
-
-  def twitter_client
-    x_credentials = {
-      api_key: ENV['TWITTER_CONSUMER_KEY'],
-      api_key_secret: ENV['TWITTER_CONSUMER_SECRET'],
-      access_token: ENV['TWITTER_ACCESS_TOKEN'],
-      access_token_secret: ENV['TWITTER_ACCESS_SECRET']
-    }
-    X::Client.new(**x_credentials)
   end
 end

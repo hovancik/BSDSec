@@ -235,8 +235,6 @@ GEM
       base64
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    x (0.17.0)
-      base64 (>= 0.2)
     zeitwerk (2.7.3)
 
 PLATFORMS
@@ -269,7 +267,6 @@ DEPENDENCIES
   sass-rails (~> 6.0)
   scout_apm (~> 6.0)
   simplecov
-  x (~> 0.17)
 
 RUBY VERSION
    ruby 3.3.10p183

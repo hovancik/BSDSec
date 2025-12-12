@@ -43,9 +43,6 @@ group :development, :test do
   gem 'simplecov', require: false
 end
 
-# Sending tweets to Twitter
-gem 'x', '~> 0.17'
-
 #PAGINATION
 gem 'kaminari'
 
