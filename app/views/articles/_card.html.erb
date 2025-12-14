@@ -1,0 +1,15 @@
+<article class="article-card">
+  <%= link_to article_path(article), class: "article-link" do %>
+    <div class="article-header">
+      <h2 class="article-title"><%= art_title(article.title) %></h2>
+    </div>
+    <div class="article-meta">
+      <time class="article-date"><%= art_date(article.created_at) %></time>
+      <div class="article-tags">
+        <% article.tags.each do |tag| %>
+          <span class="tag-pill"><%= tag.name.downcase %></span>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</article>

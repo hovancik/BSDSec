@@ -36,5 +36,8 @@ yarn-debug.log*
 # Ignore test coverage reports
 /coverage
 
+# Ignore precompiled assets
+/public/assets
+
 /app/assets/builds/*
 !/app/assets/builds/.keep

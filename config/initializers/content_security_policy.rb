@@ -10,7 +10,7 @@ Rails.application.configure do
     policy.font_src    :self, "https://fonts.googleapis.com", "https://fonts.gstatic.com"
     policy.img_src     :self, "https://img.shields.io", "https://motif.imgix.com", :data
     policy.object_src  :none
-    policy.script_src  :none
+    policy.script_src  :self
     policy.style_src   :self, "https://fonts.googleapis.com"
     policy.frame_src   :none
     policy.frame_ancestors :none
@@ -18,6 +18,14 @@ Rails.application.configure do
     policy.base_uri    :self
     policy.connect_src :self
   end
+
+  # Require nonces for any inline scripts (avoid 'unsafe-inline').
+  # This applies to the `script-src` directive only; external stylesheets loaded via
+  # `stylesheet_link_tag` (<link rel="stylesheet">) are governed by `style-src` and do
+  # not require nonces unless you explicitly add `style-src` to nonce directives.
+  # Use `nonce: true` (or `nonce: content_security_policy_nonce`) on inline script tags/helpers.
+  config.content_security_policy_nonce_generator = ->(_request) { SecureRandom.base64(16) }
+  config.content_security_policy_nonce_directives = %w[script-src]
 
   # Report violations without enforcing the policy.
   # Uncomment when first deploying, then remove after confirming no issues.

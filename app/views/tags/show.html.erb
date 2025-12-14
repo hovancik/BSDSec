@@ -22,12 +22,13 @@
   <meta property="og:url" content="<%= tag_url(@tag) %>">
 <% end %>
 
-<% @articles.each do |article| %>
-  <h2><span><%= art_date(article.created_at) %></span>
-    <%= link_to art_title(article.title), article_path(article), title:art_title(article.title) %>
-    <% article.tags.each do |tag| %>
-      <span><%= link_to tag.name, tag_path(tag), title: "articles tagged with " + tag.name  %></span>
-    <% end %>
-  </h2>
-<% end %>
+<div class="hero">
+  <span class="tag-hero-badge"><%= @tag.name.downcase %></span>
+  <p class="hero-subtitle">Security Advisories</p>
+</div>
+
+<div class="article-grid">
+  <%= render partial: "articles/card", collection: @articles, as: :article %>
+</div>
+
 <%= paginate @articles %>
