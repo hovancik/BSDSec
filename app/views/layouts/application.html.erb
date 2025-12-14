@@ -4,57 +4,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="flattr:id" content="en32oj">
-  <meta property="og:image" content="<%= asset_pack_url 'media/images/bsdsec.png' %>" />
+  <meta property="og:image" content="<%= asset_path 'bsdsec.png' %>" />
   <meta name="description" content="Deadsimple BSD Security Advisories and Announcements">
-  <link href='//fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
-  <%= javascript_pack_tag 'application' %>
-  <%= stylesheet_pack_tag 'application' %>
+  <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= auto_discovery_link_tag(:rss, articles_url(:format => :atom)) %>
   <%= yield(:meta) %>
 </head>
 <body>
 <header>
-
-<h1 class="site_title"><%= link_to "BSDSec", root_path, title:"deadsimple BSD Security Advisories and Announcements" %> </h1>
-<div class="social">
-  <%= link_to "/articles.atom", class: "fa-lg", title: "Subscribe"  do %>
-    <i class="fas fa-rss"></i>
-  <% end %>
-  <%= link_to "https://github.com/hovancik/BSDSec",class: "fa-lg",title: "fork me" do %>
-    <i class="fab fa-github"></i>
-  <% end %>
-</div>
-<p class="site_subtitle">deadsimple BSD Security Advisories and Announcements </p>
+  <div class="container">
+    <nav class="navbar">
+      <%= link_to root_path, class: "logo", title: "BSDSec" do %>
+        <%= image_tag "bsd-s-logo.svg", class: "logo-icon", alt: "BSDSec Logo", height: 24 %>
+        <span class="logo-text">BSDSec</span>
+      <% end %>
+      <div class="nav-actions">
+        <%= link_to "/articles.atom", title: "Subscribe via RSS" do %>
+          <%= icon(:rss) %>
+          <span>RSS</span>
+        <% end %>
+      </div>
+    </nav>
+  </div>
 </header>
 <main>
-<%= yield %>
+  <div class="container">
+    <%= yield %>
+  </div>
 </main>
 <footer>
-<p>
-  <% tags.each_with_index do |tag, i| %>
-    <%= link_to tag.name.upcase, tag_path(tag),title: "articles tagged with " + tag.name %>
-    <% if i < tags.length - 1 %>
-      |
-    <% end %>
-  <% end %>
-</p>
-<p>made with &hearts; by <%= link_to "Jan Hovancik", "http://hovancik.net", title:"Website of Jan Hovancik" %> </p>
- <div class="social">
-  <%= link_to "/articles.atom", title: "Subscribe" do %>
-    <i class="fas fa-rss"></i>
-  <% end %>
-  <%= link_to "https://github.com/hovancik/BSDSec" ,title: "fork me" do %>
-    <i class="fab fa-github"></i>
-  <% end %>
-</div>
-<div class="sponsor">
-  <a href="https://github.com/sponsors/hovancik">
-    <img alt="Become a Sponsor!" src="https://img.shields.io/static/v1?label=Sponsor&amp;message=%E2%9D%A4&amp;logo=GitHub&amp;color=success">
-  </a>
-  <a href="https://www.patreon.com/hovancik" rel="nofollow">
-    <img alt="Become a Patron!" src="https://img.shields.io/static/v1?label=Sponsor&amp;message=%E2%9D%A4&amp;logo=Patreon&amp;color=success">
-  </a>
-</div>
+  <div class="container">
+    <div class="tag-cloud">
+      <% tags.each do |tag| %>
+        <%= link_to tag.name.downcase, tag_path(tag) %>
+      <% end %>
+    </div>
+    <div class="credits">
+      made with &hearts; by <%= link_to "Jan Hovancik", "http://hovancik.net" %> &bull; <%= link_to "Source Code", "https://github.com/hovancik/BSDSec" %>
+    </div>
+    <div class="sponsor">
+      <a href="https://github.com/sponsors/hovancik">
+        <img alt="Become a Sponsor!" src="https://img.shields.io/static/v1?label=Sponsor&amp;message=%E2%9D%A4&amp;logo=GitHub&amp;color=30c6ff&amp;style=flat-square">
+      </a>
+      <a href="https://www.patreon.com/hovancik" rel="nofollow">
+        <img alt="Become a Patron!" src="https://img.shields.io/static/v1?label=Sponsor&amp;message=%E2%9D%A4&amp;logo=Patreon&amp;color=30c6ff&amp;style=flat-square">
+      </a>
+    </div>
+  </div>
 </footer>
 </body>
 </html>

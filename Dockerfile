@@ -1,15 +1,15 @@
-FROM ruby:3.3.6
-RUN apt-get update -qq
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-RUN curl -sL https://deb.nodesource.com/setup_16.x | bash
-RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-RUN apt-get install -y nodejs
-RUN apt-get update && apt-get install -y yarn
+FROM ruby:3.4.1
+
+# Install dependencies including jemalloc for memory optimization
+RUN apt-get update -qq && apt-get install -y libpq-dev libjemalloc2
+
+# Configure jemalloc for better memory allocation
+ENV LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.2
+ENV MALLOC_CONF=dirty_decay_ms:1000,narenas:2,background_thread:true
+
 RUN mkdir /BSDSec
 WORKDIR /BSDSec
 ADD Gemfile Gemfile.lock /BSDSec/
 RUN bundle update --bundler
 RUN bundle install
-ADD package.json yarn.lock /BSDSec/
-RUN yarn
 ADD . /BSDSec

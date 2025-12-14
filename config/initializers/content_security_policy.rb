@@ -1,30 +1,33 @@
 # Be sure to restart your server when you modify this file.
 
-# Define an application-wide content security policy
-# For further information see the following documentation
-# https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
+# Define an application-wide content security policy.
+# See the Securing Rails Applications Guide for more information:
+# https://guides.rubyonrails.org/security.html#content-security-policy-header
 
-# Rails.application.config.content_security_policy do |policy|
-#   policy.default_src :self, :https
-#   policy.font_src    :self, :https, :data
-#   policy.img_src     :self, :https, :data
-#   policy.object_src  :none
-#   policy.script_src  :self, :https
-#   policy.style_src   :self, :https
-#   # If you are using webpack-dev-server then specify webpack-dev-server host
-#   policy.connect_src :self, :https, "http://localhost:3035", "ws://localhost:3035" if Rails.env.development?
+Rails.application.configure do
+  config.content_security_policy do |policy|
+    policy.default_src :self
+    policy.font_src    :self, "https://fonts.googleapis.com", "https://fonts.gstatic.com"
+    policy.img_src     :self, "https://img.shields.io", "https://motif.imgix.com", :data
+    policy.object_src  :none
+    policy.script_src  :self
+    policy.style_src   :self, "https://fonts.googleapis.com"
+    policy.frame_src   :none
+    policy.frame_ancestors :none
+    policy.form_action :self
+    policy.base_uri    :self
+    policy.connect_src :self
+  end
 
-#   # Specify URI for violation reports
-#   # policy.report_uri "/csp-violation-report-endpoint"
-# end
+  # Require nonces for any inline scripts (avoid 'unsafe-inline').
+  # This applies to the `script-src` directive only; external stylesheets loaded via
+  # `stylesheet_link_tag` (<link rel="stylesheet">) are governed by `style-src` and do
+  # not require nonces unless you explicitly add `style-src` to nonce directives.
+  # Use `nonce: true` (or `nonce: content_security_policy_nonce`) on inline script tags/helpers.
+  config.content_security_policy_nonce_generator = ->(_request) { SecureRandom.base64(16) }
+  config.content_security_policy_nonce_directives = %w[script-src]
 
-# If you are using UJS then enable automatic nonce generation
-# Rails.application.config.content_security_policy_nonce_generator = -> request { SecureRandom.base64(16) }
-
-# Set the nonce only to specific directives
-# Rails.application.config.content_security_policy_nonce_directives = %w(script-src)
-
-# Report CSP violations to a specified URI
-# For further information see the following documentation:
-# https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy-Report-Only
-# Rails.application.config.content_security_policy_report_only = true
+  # Report violations without enforcing the policy.
+  # Uncomment when first deploying, then remove after confirming no issues.
+  # config.content_security_policy_report_only = true
+end

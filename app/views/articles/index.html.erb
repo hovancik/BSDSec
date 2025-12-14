@@ -23,15 +23,13 @@
   <meta property="og:url" content="<%= root_url %>">
 <% end %>
 
-<div>
-  <% @articles.each do |article| %>
-    <h2>
-      <span><%= art_date(article.created_at) %></span>
-      <%= link_to art_title(article.title), article_path(article), class: "article_link", title:art_title(article.title) %>
-      <% article.tags.each do |tag| %>
-        <span> <%= link_to tag.name, tag_path(tag), title: "articles tagged with " + tag.name %></span>
-      <% end %>
-    </h2>
-  <% end %>
-  <%= paginate @articles %>
+<div class="hero">
+  <%= image_tag "bsd-s-logo.svg", class: "hero-logo", alt: "BSDSec Logo", height: 80 %>
+  <p class="hero-subtitle">Deadsimple BSD Security Advisories and Announcements</p>
 </div>
+
+<div class="article-grid">
+  <%= render partial: "articles/card", collection: @articles, as: :article %>
+</div>
+
+<%= paginate @articles %>

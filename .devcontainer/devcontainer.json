@@ -12,10 +12,7 @@
       "version": "latest"
     },
     "ghcr.io/devcontainers/features/ruby:1": {
-      "version": "3.3.6"
-    },
-    "ghcr.io/devcontainers/features/node:1": {
-      "version": "16.19.0"
+      "version": "3.4.1"
     },
     "ghcr.io/devcontainers/features/common-utils:2": {
       "username": "vscode",
@@ -28,7 +25,7 @@
     },
     "ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {
       "username": "vscode",
-      "plugins": "bundler rails ruby yarn"
+      "plugins": "bundler rails ruby"
     }
   },
   // Configure tool-specific properties.

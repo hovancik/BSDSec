@@ -32,3 +32,12 @@ yarn-debug.log*
 .byebug_history
 
 /storage
+
+# Ignore test coverage reports
+/coverage
+
+# Ignore precompiled assets
+/public/assets
+
+/app/assets/builds/*
+!/app/assets/builds/.keep

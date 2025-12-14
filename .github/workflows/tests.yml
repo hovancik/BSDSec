@@ -15,34 +15,21 @@ jobs:
           --health-timeout 5s
           --health-retries 5
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Install Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.3.6
-      - run: gem update --system    
-      - name: Install Bundler
-        run: gem install bundler
-      - name: Install Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: 16.19.0
+          ruby-version: 3.4.1
+          bundler-cache: true
       - name: Setup the Rails application
         env:
           RAILS_ENV: test
         run: |
           sudo apt-get -yqq install libpq-dev build-essential
-          bundle install --no-deployment --jobs 4 --retry 3
           cp config/database.github.yml config/database.yml
           bundle exec rails db:create
           bundle exec rails db:migrate
-          yarn --frozen-lockfile
       - name: Run unit tests
         run: bundle exec rails test
         env:
           TEST_EMAIL: a@b.cd
-          CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
-      - name: Publish code coverage
-        uses: paambaati/codeclimate-action@v2.7.5
-        env:
-          CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}

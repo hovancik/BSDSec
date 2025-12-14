@@ -1,14 +1,14 @@
 source 'https://rubygems.org'
-ruby '3.3.6'
+ruby '3.4.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0'
+gem 'rails', '~> 8.1.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
-# Webpacker
-gem 'webpacker'
 
-gem 'sass-rails', '~> 6.0'
+# Asset pipeline
+gem 'sprockets-rails'
+gem 'dartsass-rails'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 # gem 'sdoc', '~> 0.4.0', group: :doc
@@ -27,33 +27,29 @@ gem 'sass-rails', '~> 6.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  gem 'byebug', '~> 12.0'
 
+  gem 'foreman'
   gem 'listen'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
   # A Ruby gem to load environment variables from `.env`.
   gem 'dotenv-rails'
   # Code coverage
   gem 'simplecov', require: false
 end
 
-# Sending tweets to Twitter
-gem 'x', '~> 0.14.1'
-
 #PAGINATION
 gem 'kaminari'
 
 #FRIENDLY_ID
-gem 'friendly_id'
+gem 'friendly_id', '~> 5.6'
 
 # PUMA (for heroku)
-gem 'puma'
+gem 'puma', '~> 7.0'
 
-gem 'bootsnap'
+gem 'bootsnap', '~> 1.19'
 
 # Monitoring
-gem 'scout_apm'
+gem 'scout_apm', '~> 6.0'
 
 # Error tracking
-gem 'rollbar'
+gem 'rollbar', '~> 3.7'
