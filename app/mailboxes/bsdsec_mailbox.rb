@@ -11,13 +11,18 @@ class BsdsecMailbox < ApplicationMailbox
     rescue StandardError
       nil
     end
-    raise
+    raise exception
   end
 
   def process
-    case email_list_address
-    when ENV["TEST_EMAIL"].presence
+    list_address = email_list_address
+
+    if test_email && list_address == test_email
       create_article("Test")
+      return
+    end
+
+    case list_address
     when "announce@openbsd.org"
       create_article("OpenBSD")
     when "freebsd-announce@freebsd.org"
@@ -61,9 +66,12 @@ class BsdsecMailbox < ApplicationMailbox
                      "security-advisories@freebsd.org", "core@freebsd.org",
                      "midnightbsd-security@midnightbsd.org",
                      "security-announce@lists.pfsense.org"]
-    test_email = ENV["TEST_EMAIL"]
-    acceptable_to << test_email if test_email.present?
+    acceptable_to << test_email if test_email
     (acceptable_to & (tos + ccs)).first
+  end
+
+  def test_email
+    ENV["TEST_EMAIL"]&.strip&.downcase.presence
   end
 
   def tos
