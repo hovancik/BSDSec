@@ -1,11 +1,16 @@
 class BsdsecMailbox < ApplicationMailbox
   rescue_from(StandardError) do |exception|
-    Rollbar.error(
-      exception,
-      mailbox: self.class.name,
-      message_id: mail.message_id,
-      email_list_address: email_list_address
-    )
+    begin
+      Rollbar.error(
+        exception,
+        mailbox: self.class.name,
+        message_id: mail&.message_id,
+        to: mail&.to,
+        cc: mail&.cc
+      )
+    rescue StandardError
+      nil
+    end
     raise
   end
 
@@ -58,7 +63,7 @@ class BsdsecMailbox < ApplicationMailbox
                      "security-announce@lists.pfsense.org"]
     test_email = ENV["TEST_EMAIL"]
     acceptable_to << test_email if test_email.present?
-    (acceptable_to & tos + ccs).first
+    (acceptable_to & (tos + ccs)).first
   end
 
   def tos
