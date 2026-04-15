@@ -1,12 +1,17 @@
 class BsdsecMailbox < ApplicationMailbox
   rescue_from(StandardError) do |exception|
-    Rollbar.error(exception)
+    Rollbar.error(
+      exception,
+      mailbox: self.class.name,
+      message_id: mail.message_id,
+      email_list_address: email_list_address
+    )
     raise
   end
 
   def process
     case email_list_address
-    when ENV.fetch("TEST_EMAIL", "")
+    when ENV["TEST_EMAIL"].presence
       create_article("Test")
     when "announce@openbsd.org"
       create_article("OpenBSD")
@@ -50,7 +55,9 @@ class BsdsecMailbox < ApplicationMailbox
                      "netbsd-announce@netbsd.org", "announce@netbsd.org",
                      "security-advisories@freebsd.org", "core@freebsd.org",
                      "midnightbsd-security@midnightbsd.org",
-                     "security-announce@lists.pfsense.org", ENV.fetch("TEST_EMAIL", "")]
+                     "security-announce@lists.pfsense.org"]
+    test_email = ENV["TEST_EMAIL"]
+    acceptable_to << test_email if test_email.present?
     (acceptable_to & tos + ccs).first
   end
 
