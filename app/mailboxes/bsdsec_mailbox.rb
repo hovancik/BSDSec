@@ -1,4 +1,9 @@
 class BsdsecMailbox < ApplicationMailbox
+  rescue_from(StandardError) do |exception|
+    Rollbar.error(exception)
+    raise
+  end
+
   def process
     case email_list_address
     when ENV.fetch("TEST_EMAIL", "")
