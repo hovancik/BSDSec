@@ -1,8 +1,28 @@
 class BsdsecMailbox < ApplicationMailbox
+  rescue_from(StandardError) do |exception|
+    begin
+      Rollbar.error(
+        exception,
+        mailbox: self.class.name,
+        message_id: mail&.message_id,
+        to: mail&.to,
+        cc: mail&.cc
+      )
+    rescue StandardError
+      nil
+    end
+    raise exception
+  end
+
   def process
-    case email_list_address
-    when ENV.fetch("TEST_EMAIL")
+    list_address = email_list_address
+
+    if test_email && list_address == test_email
       create_article("Test")
+      return
+    end
+
+    case list_address
     when "announce@openbsd.org"
       create_article("OpenBSD")
     when "freebsd-announce@freebsd.org"
@@ -45,8 +65,13 @@ class BsdsecMailbox < ApplicationMailbox
                      "netbsd-announce@netbsd.org", "announce@netbsd.org",
                      "security-advisories@freebsd.org", "core@freebsd.org",
                      "midnightbsd-security@midnightbsd.org",
-                     "security-announce@lists.pfsense.org", ENV.fetch("TEST_EMAIL")]
-    (acceptable_to & tos + ccs).first
+                     "security-announce@lists.pfsense.org"]
+    acceptable_to << test_email if test_email
+    (acceptable_to & (tos + ccs)).first
+  end
+
+  def test_email
+    ENV["TEST_EMAIL"]&.strip&.downcase.presence
   end
 
   def tos
