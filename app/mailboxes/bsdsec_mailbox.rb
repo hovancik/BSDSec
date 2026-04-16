@@ -22,6 +22,11 @@ class BsdsecMailbox < ApplicationMailbox
       return
     end
 
+    unless from_allowed?
+      store_email
+      return
+    end
+
     case list_address
     when "announce@openbsd.org"
       create_article("OpenBSD")
@@ -44,10 +49,7 @@ class BsdsecMailbox < ApplicationMailbox
     when "security-announce@lists.pfsense.org"
       create_article("pfSense")
     else
-      Email.create(from: mail.from.first,
-                   to: tos.join(', '),
-                   cc: ccs.join(', '),
-                   subject: mail.subject, body: mail.body)
+      store_email
     end
   end
 
@@ -57,6 +59,22 @@ class BsdsecMailbox < ApplicationMailbox
     article = Article.create(title: mail.subject, body: mail.body,
                              from: mail.from.first,
                              tag_list: tag_list.downcase)
+  end
+
+  def store_email
+    Email.create(from: mail.from.first,
+                 to: tos.join(', '),
+                 cc: ccs.join(', '),
+                 subject: mail.subject, body: mail.body)
+  end
+
+  def from_allowed?
+    allowed_domains = ["openbsd.org", "freebsd.org", "netbsd.org",
+                       "midnightbsd.org", "pfsense.org"]
+    from_address = mail.from&.first&.downcase
+    return false unless from_address
+    domain = from_address.split("@").last
+    allowed_domains.include?(domain)
   end
 
   def email_list_address
