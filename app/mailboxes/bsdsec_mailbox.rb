@@ -76,9 +76,13 @@ class BsdsecMailbox < ApplicationMailbox
   end
 
   def from_known_list?
-    list_id = mail["List-Id"]&.value&.downcase
-    return false unless list_id
-    ACCEPTABLE_LIST_IDS.any? { |id| list_id.include?(id) }
+    list_id_field = mail["List-Id"]
+    return false unless list_id_field
+    list_id = list_id_field.to_s.downcase
+    # Extract the identifier from angle brackets per RFC 2919: "List name <list-id>"
+    match = list_id.match(/<([^>]+)>/)
+    return false unless match
+    ACCEPTABLE_LIST_IDS.include?(match[1])
   end
 
   def email_list_address
