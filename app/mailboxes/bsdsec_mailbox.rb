@@ -1,4 +1,7 @@
 class BsdsecMailbox < ApplicationMailbox
+  ALLOWED_FROM_DOMAINS = ["openbsd.org", "freebsd.org", "netbsd.org",
+                          "midnightbsd.org", "pfsense.org"].freeze
+
   rescue_from(StandardError) do |exception|
     begin
       Rollbar.error(
@@ -69,12 +72,10 @@ class BsdsecMailbox < ApplicationMailbox
   end
 
   def from_allowed?
-    allowed_domains = ["openbsd.org", "freebsd.org", "netbsd.org",
-                       "midnightbsd.org", "pfsense.org"]
     from_address = mail.from&.first&.downcase
-    return false unless from_address
+    return false unless from_address&.include?("@")
     domain = from_address.split("@").last
-    allowed_domains.include?(domain)
+    ALLOWED_FROM_DOMAINS.include?(domain)
   end
 
   def email_list_address
