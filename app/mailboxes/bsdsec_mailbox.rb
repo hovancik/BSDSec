@@ -1,6 +1,10 @@
 class BsdsecMailbox < ApplicationMailbox
-  ALLOWED_FROM_DOMAINS = ["openbsd.org", "freebsd.org", "netbsd.org",
-                          "midnightbsd.org", "pfsense.org"].freeze
+  ACCEPTABLE_LIST_IDS = ["announce.freebsd.org", "errata-notices.freebsd.org",
+                         "announce.openbsd.org", "freebsd-announce.freebsd.org",
+                         "netbsd-announce.netbsd.org", "announce.netbsd.org",
+                         "security-advisories.freebsd.org", "core.freebsd.org",
+                         "midnightbsd-security.midnightbsd.org",
+                         "security-announce.lists.pfsense.org"].freeze
 
   rescue_from(StandardError) do |exception|
     begin
@@ -25,7 +29,7 @@ class BsdsecMailbox < ApplicationMailbox
       return
     end
 
-    unless from_allowed?
+    unless from_known_list?
       store_email
       return
     end
@@ -71,11 +75,10 @@ class BsdsecMailbox < ApplicationMailbox
                  subject: mail.subject, body: mail.body)
   end
 
-  def from_allowed?
-    from_address = mail.from&.first&.downcase
-    return false unless from_address&.include?("@")
-    domain = from_address.split("@").last
-    ALLOWED_FROM_DOMAINS.include?(domain)
+  def from_known_list?
+    list_id = mail["List-Id"]&.value&.downcase
+    return false unless list_id
+    ACCEPTABLE_LIST_IDS.any? { |id| list_id.include?(id) }
   end
 
   def email_list_address
