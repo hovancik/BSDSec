@@ -44,7 +44,7 @@ gem 'kaminari'
 gem 'friendly_id', '~> 5.6'
 
 # PUMA (for heroku)
-gem 'puma', '~> 7.0'
+gem 'puma', '~> 7.2'
 
 gem 'bootsnap', '~> 1.19'
 

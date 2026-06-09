@@ -215,7 +215,7 @@ GEM
     psych (5.3.1)
       date
       stringio
-    puma (7.1.0)
+    puma (7.2.1)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.2.5)
@@ -334,7 +334,7 @@ DEPENDENCIES
   kaminari
   listen
   pg
-  puma (~> 7.0)
+  puma (~> 7.2)
   rails (~> 8.1.0)
   rollbar (~> 3.7)
   scout_apm (~> 6.0)
